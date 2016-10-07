@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlquilaCocheras.Web", "AlquilaCocheras.Web\AlquilaCocheras.Web.csproj", "{A8F611B9-DEEA-4558-86D3-00C99677AADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases_Roles", "Clases_Roles\Clases_Roles.csproj", "{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8F611B9-DEEA-4558-86D3-00C99677AADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F611B9-DEEA-4558-86D3-00C99677AADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F611B9-DEEA-4558-86D3-00C99677AADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F611B9-DEEA-4558-86D3-00C99677AADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+.invisible: sirve para ocultar, ocupando espacio
+
+.visuallyhidden: sirve para ocultar sin ocupar espacio

@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Base/Base.Master" AutoEventWireup="true" CodeBehind="Clientes.master.cs" Inherits="AlquilaCocheras.Web.MasterPages.Clientes" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head_Base" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder_Head" runat="server">
+    </asp:ContentPlaceHolder>    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_Principal_Base" runat="server">
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder_Principal" runat="server">
+    </asp:ContentPlaceHolder>    
+</asp:Content>

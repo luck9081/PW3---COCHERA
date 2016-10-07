@@ -1,0 +1,4 @@
+<input type="hidden" id="city2" name="city2" />
+<input type="hidden" id="cityLat" value="0" name="cityLat" />
+<input type="hidden" id="cityLng" value="0" name="cityLng"/>
+<div id="mapa" class="" style=""></div>

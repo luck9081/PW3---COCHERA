@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Base.master.cs" Inherits="AlquilaCocheras.Web.MasterPages.Base" %>
+<%@ Register Src="~/UCMenuDefault.ascx" TagPrefix="uc1" TagName="defaultUcMenu" %>
+<%@ Register Src="~/UCFooterDefault.ascx" TagPrefix="uc1" TagName="defaultUcFooter" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    
+        <!-- BOOTSTRAP CSS & STYLES-->
+        <link rel="stylesheet" href="/framework/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/css/Style.css"/>
+	    <link rel="stylesheet" href="/css/form-mini.css"/>
+        <link rel="stylesheet" href="/css/footer-distributed.css"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+    
+        <!-- JQUERY & BOOTSTRAP JS-->
+        <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="/framework/bootstrap/js/bootstrap.min.js"></script>
+
+        <asp:ContentPlaceHolder ID="head_Base" runat="server">
+            <!-- AQUI SE LISTAN TITLES, ESTILOS Y SCRIPTS -->
+        </asp:ContentPlaceHolder>
+    
+    </head>
+    <body>
+        <div id="contendor" class="container-fluid">
+    
+            <header>
+                <!-- AQUI SE LISTA EL MENU PRINCIPAL PARA CADA ROL -->
+                <uc1:defaultUcMenu runat="server" ID="MenuAnonimo" />
+            </header>
+
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder_Principal_Base" runat="server">
+                        <!-- AQUI SE LISTAN LOS CONTENIDOS DE LAS PAGINAS ASPX -->
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+
+            <!-- AQUI SE UBICA EL FOOTER -->
+            <uc1:defaultUcFooter runat="server" id="defaultUcFooter"/>
+    
+        </div>
+
+    
+        <!-- SCRIPTS -->
+        <script type="text/javascript" src="/js/Scripts.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,19 @@
+
+ POR HACER:
+
+ - Validar rango horario de a 30 minutos (cochera.aspx)
+
+ - Permitir selección múltiple en listbox (cochera.aspx)
+
+ - Fusionar Footer
+
+ - Mostrar "Operación Exitosa"
+
+
+/-----------------------------------------------------------------------------/
+
+ HECHO:
+
+ - Fusionar Menúes y mostrar según sesión
+
+ - Al cargar una nueva cochera, llevarla a la tabla de "Ver Reservas"  ( OPCIONAL!!!! )

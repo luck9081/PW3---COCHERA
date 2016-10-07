@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Base/Base.Master" AutoEventWireup="true" CodeBehind="Propietarios.master.cs" Inherits="AlquilaCocheras.Web.MasterPages.Propietarios" %>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head_Base" runat="server">
+
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="/css/mdb.min.css"/>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <!--link href="/css/bootstrap-material-design.min.css" rel="stylesheet"/>
+    <link href="/css/ripples.min.css" rel="stylesheet"/-->
+
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder_Head" runat="server">        
+    </asp:ContentPlaceHolder>    
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_Principal_Base" runat="server">    
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder_Principal" runat="server">
+    </asp:ContentPlaceHolder>    
+
+</asp:Content>
