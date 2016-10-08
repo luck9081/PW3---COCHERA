@@ -90,6 +90,7 @@
     <Content Include="imagenes\cocheras\Reservar.jpg" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\maps.js" />
+    <Content Include="js\mapsDefault.js" />
     <Content Include="js\material.min.js" />
     <Content Include="js\mdb.js" />
     <Content Include="js\mdb.min.js" />

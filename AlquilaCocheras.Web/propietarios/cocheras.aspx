@@ -10,7 +10,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_Principal" runat="server">
-    
+
     <div class="container espaciado-superior espaciado-inferior">
         <div class="row">        
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -30,11 +30,6 @@
                         <div class="animated slideInLeft">
                         
                             <hr class="colorgraph">                        
-
-                            <input type="hidden" id="city2" name="city2" />
-                            <input type="hidden" id="cityLat" value="0" name="cityLat" />
-                            <input type="hidden" id="cityLng" value="0" name="cityLng"/>
-                            <div id="mapa" class="" style=""></div>
 
                             <div class="form-group md-form">
                                 <i class="fa fa-map-marker prefix fav-icon-input"></i>

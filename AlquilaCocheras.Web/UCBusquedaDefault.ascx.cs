@@ -15,9 +15,6 @@ namespace AlquilaCocheras.Web
 
         }
 
-
-
-
         protected void CustomValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = true;

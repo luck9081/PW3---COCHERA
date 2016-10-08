@@ -215,3 +215,11 @@ width:1361px;
 margin-left:-1%;
 
 }
+
+#mapa {
+    margin: 0;
+    padding: 0;
+    width:369px;
+    height:350px;
+    border: 1px solid #ccc;
+}

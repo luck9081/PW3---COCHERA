@@ -2,10 +2,13 @@
 <%@ Register Src="~/UCBusquedaDefault.ascx" TagPrefix="uc2" TagName="Busqueda" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_Principal" runat="server">
+    
     <div id="contenedor_fondo" class="row">
-        <<div class="container col-lg-8">
+        <div class="container col-lg-8">
   
   <div id="myCarousel" class="carousel slide">
     <!-- Indicadores -->
@@ -77,7 +80,8 @@
     <div id="bannerRow" visible="true" runat="server" class="row">
         <img id="banner" class="col-lg-12" src="imagenes/cocheras/banna.gif" />
     </div>
-    <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
+
+<table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
   <thead>
     <tr>
       <th>#</th>
@@ -123,54 +127,62 @@
     </tr>
   </tbody>
 </table>
-  
-     <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Imagen de la cochera</h4>
-        </div>
-        <div class="modal-body">
-          <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-    
-    <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ubicacion de la cochera</h4>
-        </div>
-        <div class="modal-body">
-          <div id="map_canvas_custom_298712" class="mapaH" style="width:369px; height:350px" ></div>
-<script type="text/javascript">
-                (function (d, t) {
-                    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                    g.src = "http://map-generator.net/es/maps/298712.js?point=Mariano+J.+Haedo%2C+Argentina";
-                    s.parentNode.insertBefore(g, s);
-                }(document, "script"));</script>
-            <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    
+  
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Imagen de la cochera</h4>
+            </div>
+            <div class="modal-body">
+                <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
         </div>
-      </div>
       
     </div>
-  </div>
-      
+</div>
+    
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ubicacion de la cochera</h4>
+            </div>
+    
+            <div class="modal-body">
+
+                <div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"></div>
+
+                <script type="text/javascript">
+                    (function (d, t) {
+                        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                        g.src = "http://map-generator.net/es/maps/298712.js?point=Mariano+J.+Haedo%2C+Argentina";
+                        s.parentNode.insertBefore(g, s);
+                    }(document, "script"));
+                </script>
+
+                <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>    
+        </div>
+
+    </div>
+</div>
    
 </asp:Content>
 

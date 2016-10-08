@@ -14,7 +14,7 @@
                      <asp:TextBox ID="txtUbicacion" placeholder="Ingrese ubicacion:" runat="server" ClientIDMode="Static"></asp:TextBox>
                      <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator" OnServerValidate="CustomValidator_ServerValidate"></asp:CustomValidator>
                 </div>
-
+              
                 <div class="form-row">
                     
                      <asp:TextBox ID="txtFechaInicio" placeholder="Periodo de busqueda:" runat="server" ClientIDMode="Static"></asp:TextBox>

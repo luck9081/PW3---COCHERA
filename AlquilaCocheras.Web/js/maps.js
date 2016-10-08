@@ -7,15 +7,15 @@ function initialize() {
 
                 var place = autocomplete.getPlace();
 
-                document.getElementById('city2').value = place.name;
+                // document.getElementById('city2').value = place.name;
                 document.getElementById('txtLatitud').value = place.geometry.location.lat();
                 document.getElementById('txtLongitud').value = place.geometry.location.lng();
-                //alert("This function is working!");
-                //alert(place.name);
+                // alert("This function is working!");
+                // alert(place.name);
                 // alert(place.address_components[0].long_name);
 
-                var lat = document.getElementById('cityLat').value,
-                    lng = document.getElementById('cityLng').value;
+                var lat = place.geometry.location.lat(),
+                    lng = place.geometry.location.lng();
 
                 var mapOptions = {
                     center: new google.maps.LatLng(lat, lng),
