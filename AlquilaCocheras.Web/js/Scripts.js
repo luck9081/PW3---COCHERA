@@ -57,6 +57,30 @@
 
     $(document).ready(function () {
 
+        $(".calculadora").change(function () {
+            
+            var date1 = new Date(document.getElementById("txtFechaInicio").value);
+            var date2 = new Date(document.getElementById("txtFechaFin").value);
+
+            var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600));
+
+            
+
+            var horaInicio = document.getElementById("txtHorarioInicio").value;
+            var horaFin = document.getElementById("txtHorarioFin").value;
+
+            horaInicio = parseInt(horaInicio.substr(0, 2));
+            horaFin = parseInt(horaFin.substr(0, 2));
+
+            var diffHoras = horaFin - horaInicio;
+
+            document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (document.getElementById("precioHora").value);
+
+            
+        });
+
         // Activate Carousel
         $("#myCarousel").carousel();
 
@@ -84,7 +108,7 @@
     });
 });
 
-function validarRangoFecha(src, arg) {
+/*function validarRangoFecha(src, arg) {
 
     var date1 = new Date(document.getElementById("txtFechaInicio"));
     var date2 = new Date(document.getElementById("txtFechaInicio"));
@@ -94,4 +118,4 @@ function validarRangoFecha(src, arg) {
     arg.value = diffDays.toString();
 
     arg.IsValid = diffDays <= 90;
-}
+}*/
