@@ -16,7 +16,7 @@
     <br />
     <br />
     <br />
-    <h3>Mis reservas</h3>  
+    <h2>Mis reservas</h2>  
     
    
     <table class="table table-hover table-inverse tablaPuntuacion"  visible="true" runat="server">
