@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCFooterDefault.ascx.cs" Inherits="AlquilaCocheras.Web.UCFooterDefault" %>
-<footer class="footer-distributed">
+<footer class="footer-distributed ">
 
 			<div class="footer-right">
 

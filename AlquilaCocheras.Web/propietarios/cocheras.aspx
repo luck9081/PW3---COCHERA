@@ -21,9 +21,11 @@
                             <h3>
                                 <asp:Label ID="lblResultado" CssClass="h3-responsive font-celeste animated zoomIn" runat="server"></asp:Label>
                             </h3>
-                        </div>
+
+                            <br />
+
+                        </div>                        
                         
-                        <br />
                         
                         <h2 class="animated flipInX">Nueva Cochera</h2>
                                                 

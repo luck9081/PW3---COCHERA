@@ -39,12 +39,12 @@
                         <!-- AQUI SE LISTAN LOS CONTENIDOS DE LAS PAGINAS ASPX -->
                     </asp:ContentPlaceHolder>
                 </div>
-            </form>
-
-            <!-- AQUI SE UBICA EL FOOTER -->
-            <uc1:defaultUcFooter runat="server" id="defaultUcFooter"/>
+            </form>            
     
         </div>
+        
+        <!-- AQUI SE UBICA EL FOOTER -->
+        <uc1:defaultUcFooter runat="server" id="defaultUcFooter"/>
 
     
         <!-- SCRIPTS -->

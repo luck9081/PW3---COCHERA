@@ -57,6 +57,8 @@
 
     $(document).ready(function () {
 
+        // CALCULADORA DE "confirmar-reserva.aspx"
+
         $(".calculadora").change(function () {
             
             var date1 = new Date(document.getElementById("txtFechaInicio").value);
@@ -65,7 +67,6 @@
             var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 
             var diffDays = Math.ceil(timeDiff / (1000 * 3600));
-
             
 
             var horaInicio = document.getElementById("txtHorarioInicio").value;
@@ -77,7 +78,6 @@
             var diffHoras = horaFin - horaInicio;
 
             document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (document.getElementById("precioHora").value);
-
             
         });
 
@@ -107,15 +107,3 @@
         });
     });
 });
-
-/*function validarRangoFecha(src, arg) {
-
-    var date1 = new Date(document.getElementById("txtFechaInicio"));
-    var date2 = new Date(document.getElementById("txtFechaInicio"));
-    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-    arg.value = diffDays.toString();
-
-    arg.IsValid = diffDays <= 90;
-}*/
