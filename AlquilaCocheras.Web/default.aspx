@@ -8,60 +8,58 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_Principal" runat="server">
     
     <div id="contenedor_fondo" class="row">
-        <div class="container col-lg-8">
-  
-  <div id="myCarousel" class="carousel slide">
-    <!-- Indicadores -->
-    <ol class="carousel-indicators">
-      <li class="item1 active"></li>
-      <li class="item2"></li>
-      <li class="item3"></li>
-      <li class="item4"></li>
-    </ol>
+        <div class="container col-lg-8">  
+          <div id="myCarousel" class="carousel slide">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+              <li class="item1 active"></li>
+              <li class="item2"></li>
+              <li class="item3"></li>
+              <li class="item4"></li>
+            </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
 
-      <div class="item active">
-        <img src="imagenes/cocheras/garage1.jpg" class="imgDef" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Cochera 1</h3>
-          <p>Pulcra,amplia y económica.</p>
-        </div>
-      </div>
+              <div class="item active">
+                <img src="imagenes/cocheras/garage1.jpg" class="imgDef" alt="Chania" width="460" height="345">
+                <div class="carousel-caption">
+                  <h3>Cochera 1</h3>
+                  <p>Pulcra,amplia y económica.</p>
+                </div>
+              </div>
 
-      <div class="item">
-        <img src="imagenes/cocheras/garage2.jpg" class="imgDef" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Cochera 2</h3>
-          <p>La más prestigiosa de zona oeste.</p>
-        </div>
-      </div>
+              <div class="item">
+                <img src="imagenes/cocheras/garage2.jpg" class="imgDef" alt="Chania" width="460" height="345">
+                <div class="carousel-caption">
+                  <h3>Cochera 2</h3>
+                  <p>La más prestigiosa de zona oeste.</p>
+                </div>
+              </div>
     
-      <div class="item">
-        <img src="imagenes/cocheras/garage3.jpg" class="imgDef" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Cochera 3</h3>
-          <p>Seguridad garantizada.</p>
-        </div>
-      </div>
+              <div class="item">
+                <img src="imagenes/cocheras/garage3.jpg" class="imgDef" alt="Flower" width="460" height="345">
+                <div class="carousel-caption">
+                  <h3>Cochera 3</h3>
+                  <p>Seguridad garantizada.</p>
+                </div>
+              </div>
 
-      <div class="item">
-        <img src="imagenes/cocheras/garage4.jpg" class="imgDef" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Cochera 4</h3>
-          <p>Comodidad y buenos precios.</p>
-        </div>
-      </div>
+              <div class="item">
+                <img src="imagenes/cocheras/garage4.jpg" class="imgDef" alt="Flower" width="460" height="345">
+                <div class="carousel-caption">
+                  <h3>Cochera 4</h3>
+                  <p>Comodidad y buenos precios.</p>
+                </div>
+              </div>
   
-    </div>
-  </div>
-</div>
-    <%--Inicio User Control--%>
-    <uc2:Busqueda runat="server" id="UCBusquedaDefault" class="col-lg-4"/>
-    <%--Fin User Control--%>
-    
-        
+            </div>
+          </div>
+        </div>
+
+        <%--Inicio User Control--%>
+        <uc2:Busqueda runat="server" id="UCBusquedaDefault" class="col-lg-4"/>
+        <%--Fin User Control--%>
     </div>
    
 
