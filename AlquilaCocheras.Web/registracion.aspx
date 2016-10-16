@@ -53,10 +53,9 @@
 					</div>
                     <br />
                     <br />
-                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                    
-                    
-				</div>
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server"/>
+                </div>
+
 			</fieldset>
 		</div>
 	</div>

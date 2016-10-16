@@ -1,16 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCMenuDefault.ascx.cs" Inherits="AlquilaCocheras.Web.defaultUcMenu" %>
 
+<%-- Predeterminadamente, Cliente y Propietario poseen la clase "hidden" ya que Anonimo es quien se muestra primero. --%>
 
-<%
-    int tipo = 0;
 
-    if (Session["tipo"] != null)
-    {
-        tipo = (int)Session["tipo"];
-    }
-%>
+<%------------------ MENU ANONIMO ------------------%>
 
-<div class="navbar-wrapper <% if (tipo != 0) { Response.Write("hidden"); } %>">
+<div id="menuAnonimo" class="navbar-wrapper" runat="server">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">
@@ -23,24 +18,37 @@
                     </button>
                     <a class="navbar-brand" href="default.aspx">Logo</a>
                 </div>
+
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="default.aspx" class="">Inicio</a></li>
-                       
+                        <li class="active">
+                            <a href="default.aspx" class="">
+                                Inicio
+                            </a>
+                        </li>                       
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                           <li class=""><a href="login.aspx"  role="button" >Ingresar</a>
-                            
+                        <li class="">
+                            <a href="login.aspx" role="button">
+                                Ingresar
+                            </a>
                         </li>
-                        <li class=""><a href="registracion.aspx">Registrarse</a></li>
+                        <li class="">
+                            <a href="registracion.aspx">
+                                Registrarse
+                            </a>
+                        </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
     </div>
 </div>
 
-<div class="navbar-wrapper <% if (tipo != 2) { Response.Write("hidden"); } %>">
+<%------------------ MENU PROPIETARIO ------------------%>
+
+<div id="menuPropietario" class="navbar-wrapper hidden" runat="server">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">
@@ -60,12 +68,12 @@
                 <div id="navbar" class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav">
-                        <li id="menu-nueva-cochera" class="active">
+                        <li id="menu-nueva-cochera">
                             <a href="cocheras.aspx">
                                 Nueva Cochera
                             </a>
                          </li>
-                        <li id="menu-reservas"class="">
+                        <li id="menu-reservas" class="active">
                             <a href="reservas.aspx">
                                 Reservas
                             </a>
@@ -84,13 +92,17 @@
                             </a>
                         </li>
                     </ul>
+
                 </div>
+
             </div>
         </nav>
     </div>
 </div>
 
-<div class="navbar-wrapper <% if (tipo != 1) { Response.Write("hidden"); } %>">
+<%------------------ MENU CLIENTE ------------------%>
+
+<div id="menuCliente" class="navbar-wrapper hidden" runat="server">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">
@@ -129,7 +141,9 @@
                             </a>
                         </li>
                     </ul>
+
                 </div>
+
             </div>
         </nav>
     </div>

@@ -32,14 +32,12 @@ namespace AlquilaCocheras.Web
                 if (us.Tipo == "1" & us.CompararContraseñas(email, pass))
                 {
                     Response.Redirect("/clientes/reservar.aspx", false);
-                    HttpContext.Current.Session["tipo"] = 1;
                 }
                 else
                 {
                     if (us.Tipo == "2" & us.CompararContraseñas(email, pass))
                     {
                         Response.Redirect("/propietarios/reservas.aspx", false);
-                        HttpContext.Current.Session["tipo"] = 2;
                     }
                     else
                         lblResultado.Text = "La contraseña es erronea";
