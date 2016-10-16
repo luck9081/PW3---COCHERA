@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCMenuDefault.ascx.cs" Inherits="AlquilaCocheras.Web.defaultUcMenu" %>
 
-<%-- Predeterminadamente, Cliente y Propietario poseen la clase "hidden" ya que Anonimo es quien se muestra primero. --%>
+<%-- Predeterminadamente, Cliente y Propietario poseen el atributo visible="false" ya que Anonimo es quien se muestra primero. --%>
 
 
 <%------------------ MENU ANONIMO ------------------%>
@@ -48,7 +48,7 @@
 
 <%------------------ MENU PROPIETARIO ------------------%>
 
-<div id="menuPropietario" class="navbar-wrapper hidden" runat="server">
+<div id="menuPropietario" class="navbar-wrapper" runat="server" visible="false">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">
@@ -102,7 +102,7 @@
 
 <%------------------ MENU CLIENTE ------------------%>
 
-<div id="menuCliente" class="navbar-wrapper hidden" runat="server">
+<div id="menuCliente" class="navbar-wrapper" runat="server" visible="false">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">

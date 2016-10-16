@@ -12,7 +12,7 @@ namespace AlquilaCocheras.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // ESTABLECER EL MENU DE NAVEGACION PARA CADA TIPO DE USUARIO
+            // ESTABLECER EL MENU DE NAVEGACION PARA CADA TIPO DE USUARIO (nota: este método impide que el codigo ocultado llegue al browser del cliente)
 
             if (Session["usuario"] != null)
             {
@@ -21,15 +21,13 @@ namespace AlquilaCocheras.Web
                 switch (us.Tipo)
                 {
                     case "1":
-                        menuCliente.Attributes.CssStyle.Clear();                // Limpiamos todas las clases de CLIENTE
-                        menuCliente.Attributes.Add("class", "navbar-wrapper");  // Y agregamos las que estaban, menos "hidden".
-                        menuAnonimo.Attributes.Add("class", "hidden");          // Ahora ocultamos ANONIMO
+                        menuCliente.Visible = true;     // Si el tipo es "1", entonces mostramos Cliente
+                        menuAnonimo.Visible = false;    // y ocultamos Anonimo
                         break;
 
                     case "2":
-                        menuPropietario.Attributes.CssStyle.Clear();                // Limpiamos todas las clases de PROPIETARIO
-                        menuPropietario.Attributes.Add("class", "navbar-wrapper");  // Y agregamos las que estaban, menos "hidden".
-                        menuAnonimo.Attributes.Add("class", "hidden");              // Ahora ocultamos ANONIMO
+                        menuPropietario.Visible = true;     // Si el tipo es "2", entonces mostramos Cliente
+                        menuAnonimo.Visible = false;        // y ocultamos Anonimo
                         break;
                 }
             }
