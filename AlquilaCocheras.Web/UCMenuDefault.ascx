@@ -21,20 +21,20 @@
 
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="default.aspx" class="">
+                        <li id="inicio" runat="server" class="active">
+                            <a href="default.aspx?pestaña=inicio" class="">
                                 Inicio
                             </a>
                         </li>                       
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class="">
-                            <a href="login.aspx" role="button">
+                        <li id="login" runat="server">
+                            <a href="login.aspx?pestaña=login" role="button">
                                 Ingresar
                             </a>
                         </li>
-                        <li class="">
-                            <a href="registracion.aspx">
+                        <li id="signup" runat="server">
+                            <a href="registracion.aspx?pestaña=signup">
                                 Registrarse
                             </a>
                         </li>
@@ -68,25 +68,25 @@
                 <div id="navbar" class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav">
-                        <li id="menu-nueva-cochera">
-                            <a href="cocheras.aspx">
+                        <li id="propNuevaCochera" runat="server">
+                            <a href="cocheras.aspx?pestaña=propNuevaCochera">
                                 Nueva Cochera
                             </a>
                          </li>
-                        <li id="menu-reservas" class="active">
-                            <a href="reservas.aspx">
+                        <li id="propReservas" runat="server">
+                            <a href="reservas.aspx?pestaña=propReservas">
                                 Reservas
                             </a>
                         </li>
                     </ul>
                     
                     <ul class="nav navbar-nav pull-right">
-                        <li id="menu-perfil" class="">
-                            <a href="perfil.aspx" >
+                        <li id="propPerfil" runat="server">
+                            <a href="perfil.aspx?pestaña=propPerfil" >
                                 Perfil
                             </a>
                         </li>
-                        <li class="">
+                        <li>
                             <a href="../logout.aspx">
                                 Salir
                             </a>
@@ -122,20 +122,20 @@
                 <div id="navbar" class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav">
-                        <li id="menu-nueva-cochera" class="active">
-                            <a href="reservar.aspx">
+                        <li id="cliReservar" runat="server">
+                            <a href="reservar.aspx?pestaña=cliReservar">
                                 Reservar
                             </a>
                          </li>
-                        <li id="menu-reservas"class="">
-                            <a href="reservas.aspx">
+                        <li id="cliReservas" runat="server" class="">
+                            <a href="reservas.aspx?pestaña=cliReservas">
                                 Mis Reservas
                             </a>
                         </li>
                     </ul>
                     
                     <ul class="nav navbar-nav pull-right">
-                        <li class="">
+                        <li>
                             <a href="../logout.aspx">
                                 Salir
                             </a>

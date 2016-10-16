@@ -22,6 +22,33 @@ namespace AlquilaCocheras.Web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuAnonimo;
         
         /// <summary>
+        /// Control inicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inicio;
+        
+        /// <summary>
+        /// Control login.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
+        
+        /// <summary>
+        /// Control signup.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl signup;
+        
+        /// <summary>
         /// Control menuPropietario.
         /// </summary>
         /// <remarks>
@@ -31,6 +58,33 @@ namespace AlquilaCocheras.Web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuPropietario;
         
         /// <summary>
+        /// Control propNuevaCochera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl propNuevaCochera;
+        
+        /// <summary>
+        /// Control propReservas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl propReservas;
+        
+        /// <summary>
+        /// Control propPerfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl propPerfil;
+        
+        /// <summary>
         /// Control menuCliente.
         /// </summary>
         /// <remarks>
@@ -38,5 +92,23 @@ namespace AlquilaCocheras.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuCliente;
+        
+        /// <summary>
+        /// Control cliReservar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cliReservar;
+        
+        /// <summary>
+        /// Control cliReservas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cliReservas;
     }
 }

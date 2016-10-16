@@ -31,13 +31,13 @@ namespace AlquilaCocheras.Web
                 us = us.obtenerUsuario(email);
                 if (us.Tipo == "1" & us.CompararContraseñas(email, pass))
                 {
-                    Response.Redirect("/clientes/reservar.aspx", false);
+                    Response.Redirect("/clientes/reservar.aspx?pestaña=cliReservar", false);
                 }
                 else
                 {
                     if (us.Tipo == "2" & us.CompararContraseñas(email, pass))
                     {
-                        Response.Redirect("/propietarios/reservas.aspx", false);
+                        Response.Redirect("/propietarios/reservas.aspx?pestaña=propReservas", false);
                     }
                     else
                         lblResultado.Text = "La contraseña es erronea";
