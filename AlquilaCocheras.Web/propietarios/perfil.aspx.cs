@@ -11,8 +11,7 @@ namespace AlquilaCocheras.Web.propietarios
     public partial class perfil : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
+        {            
             if (Session["usuario"] != null && !IsPostBack)
             {
                 Usuario usuario = (Usuario)Session["usuario"];
@@ -31,7 +30,7 @@ namespace AlquilaCocheras.Web.propietarios
                 usuario.Email = txtEmail.Text;
                 usuario.Tipo = "2";
                 usuario.Contrasenia = txtContrasenia.Text;
-                Session["usuario"] = usuario;
+                Session["usuario"] = usuario;                
             }
         }
 
@@ -39,7 +38,7 @@ namespace AlquilaCocheras.Web.propietarios
         {
             if (Page.IsValid && IsPostBack)
             {
-                lblResultado.Text = "Operacion Exitosa";
+                divResultado.Visible = true;
             }
         }
     }

@@ -25,8 +25,7 @@
         </asp:ContentPlaceHolder>
     
     </head>
-    <body>
-        <div id="contendor" class="container-fluid">
+    <body id="body" runat="server">
     
             <header>
                 <!-- AQUI SE LISTA EL MENU PRINCIPAL PARA CADA ROL -->

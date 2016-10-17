@@ -11,13 +11,11 @@
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                 <div role="form">
                     
-                    <div class="row <% if (!IsPostBack) { Response.Write("hidden"); } %>">
+                    <div id="divResultado" class="row" runat="server" visible="false">
                         <h3>
-                            <asp:Label ID="lblResultado" CssClass="h3-responsive font-celeste animated zoomIn" runat="server"></asp:Label>
+                            <asp:Label ID="lblResultado" CssClass="h3-responsive font-celeste animated zoomIn" runat="server" Text="Operación Exitosa"></asp:Label>
                         </h3>
-
                         <br />
-
                     </div>                        
                     
                         
@@ -64,7 +62,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <asp:Button ID="btnCancelar" CssClass="btn btn-lg btn-danger btn-block" runat="server" Text="Cancelar" ClientIDMode="Static" />
+                                    <asp:Button ID="btnCancelar" CssClass="btn btn-lg btn-danger btn-block" runat="server" Text="Cancelar" ClientIDMode="Static" CausesValidation="True" />
                                 </div>
                             </div>
                         </div>

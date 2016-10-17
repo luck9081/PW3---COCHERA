@@ -31,7 +31,10 @@ namespace AlquilaCocheras.Web.propietarios
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-           
+           if (IsPostBack && Page.IsValid)
+           {
+                tblReservas.Visible = true;
+           }
         }
     }
 }

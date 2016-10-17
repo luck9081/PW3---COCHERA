@@ -57,14 +57,9 @@ border: none;
 footer{
     color: #fff;
     text-align: center;
-    margin-top: 35%;
     padding: 1%;
     background: #E8AB0C;
-    margin-left: -1%;
-    width: 102%;
 }
-
-
 
 footer h2, footer h4 {
     margin-top: 5%;
@@ -226,4 +221,9 @@ margin-left:-1%;
 
 .calculadora{
 
+}
+
+.contenedor-perfil{
+    background: url("../imagenes/propietario/car.png") no-repeat fixed center;
+    background-size: cover;
 }

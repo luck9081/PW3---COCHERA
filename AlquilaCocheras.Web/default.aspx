@@ -75,112 +75,112 @@
     y el link a confirmar reserva que esta agregado abajo como asp:HyperLink, 
         donde deberán cambiarle dinamicamente el link y ponerle el idcochera correspondiente
     --%>
-    <div id="bannerRow" visible="true" runat="server" class="row">
+    <div id="bannerRow" visible="true" runat="server" class="row espaciado-inferior">
         <img id="banner" class="col-lg-12" src="imagenes/cocheras/banna.gif" />
     </div>
 
-<table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Precio hora</th>
-      <th>Propietario</th>
-      <th>Precio total</th>
-      <th>Foto</th>
-      <th>Ubicación</th>
-      <th>Puntuación</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>$150</td>
-      <td>Gonzalo Gomez</td>
-      <td>$1500</td>
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>4/5</td>
-      <td><asp:HyperLink ID="aConfirmar" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>$80</td>
-      <td>Juan Alderete</td>
-      <td>$960</td>
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>2/5</td>
-      <td><asp:HyperLink ID="HyperLink2" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>$180</td>
-      <td>Laura Castro</td>
-      <td>$1980</td>
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>5/5</td>
-      <td><asp:HyperLink ID="HyperLink3" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-  </tbody>
-</table>
+    <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Precio hora</th>
+          <th>Propietario</th>
+          <th>Precio total</th>
+          <th>Foto</th>
+          <th>Ubicación</th>
+          <th>Puntuación</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>$150</td>
+          <td>Gonzalo Gomez</td>
+          <td>$1500</td>
+          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+          <td>4/5</td>
+          <td><asp:HyperLink ID="aConfirmar" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>$80</td>
+          <td>Juan Alderete</td>
+          <td>$960</td>
+          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+          <td>2/5</td>
+          <td><asp:HyperLink ID="HyperLink2" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>$180</td>
+          <td>Laura Castro</td>
+          <td>$1980</td>
+          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+          <td>5/5</td>
+          <td><asp:HyperLink ID="HyperLink3" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
+        </tr>
+      </tbody>
+    </table>
 
     
   
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
     
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Imagen de la cochera</h4>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Imagen de la cochera</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
       
-    </div>
-</div>
-    
-<div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog">
-    
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Ubicacion de la cochera</h4>
-            </div>
-    
-            <div class="modal-body">
-
-                <div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"></div>
-
-                <script type="text/javascript">
-                    (function (d, t) {
-                        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                        g.src = "http://map-generator.net/es/maps/298712.js?point=Mariano+J.+Haedo%2C+Argentina";
-                        s.parentNode.insertBefore(g, s);
-                    }(document, "script"));
-                </script>
-
-                <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a>
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>    
         </div>
-
     </div>
-</div>
+    
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ubicacion de la cochera</h4>
+                </div>
+    
+                <div class="modal-body">
+
+                    <div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"></div>
+
+                    <script type="text/javascript">
+                        (function (d, t) {
+                            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                            g.src = "http://map-generator.net/es/maps/298712.js?point=Mariano+J.+Haedo%2C+Argentina";
+                            s.parentNode.insertBefore(g, s);
+                        }(document, "script"));
+                    </script>
+
+                    <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>    
+            </div>
+
+        </div>
+    </div>
    
 </asp:Content>
 

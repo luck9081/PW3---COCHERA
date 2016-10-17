@@ -42,7 +42,7 @@
                         <br />
 
                         <!--Tabla-->
-                        <div id="tblReservas" class="table-responsive animated zoomIn <%if (!IsPostBack || !Page.IsValid) { Response.Write("hidden"); } %>">
+                        <div id="tblReservas" class="table-responsive animated zoomIn" runat="server" visible="false">
                             <table class="table product-table">
                                 <!--Table head-->
                                 <thead>
