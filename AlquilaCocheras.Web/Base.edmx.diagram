@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fffa7541ef0e4d5196e9a130fb241502" Name="Diagrama1">
+        <EntityTypeShape EntityType="cocheraModel.cochera" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.puntuacion" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.reserva" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.ubicacion" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.vehiculo" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocheraModel.vehiculo_cochera" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="cocheraModel.FK__cochera__fk_ubic__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__cochera__fk_usua__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__puntuacio__fk_co__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__reserva__fk_coch__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__vehiculo___fk_co__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__puntuacio__fk_co__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__reserva__fk_ubic__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__reserva__fk_usua__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="cocheraModel.FK__vehiculo___fk_ve__1DE57479" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
