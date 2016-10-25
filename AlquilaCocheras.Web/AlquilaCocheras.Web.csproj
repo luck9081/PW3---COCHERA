@@ -300,6 +300,10 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acceso_Datos\Acceso_Datos.csproj">
+      <Project>{3c0156ce-ce18-4030-a691-bcc7387832fb}</Project>
+      <Name>Acceso_Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Clases_Roles\Clases_Roles.csproj">
       <Project>{a9ba6def-a286-42fa-8a44-7bbbc47df1d4}</Project>
       <Name>Clases_Roles</Name>
