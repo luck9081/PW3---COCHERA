@@ -20,11 +20,7 @@ namespace Clases_Roles
             ctx.SaveChanges();
         }
 
-<<<<<<< HEAD
-        public bool encontrarUsuario(string mail)
-=======
         public bool encontrarMail(string mail)
->>>>>>> origin/master
         {
             Usuarios resultado = (from u in ctx.Usuarios
                                   where u.Email == mail
@@ -33,10 +29,7 @@ namespace Clases_Roles
                 return true;
             else
                 return false;
-<<<<<<< HEAD
-=======
            
->>>>>>> origin/master
         
         }
 

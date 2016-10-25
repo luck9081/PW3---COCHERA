@@ -1,27 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-=======
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
->>>>>>> origin/master
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-<<<<<<< HEAD
-    <ProjectGuid>{55DB817D-C418-4C73-AB96-0907541651A4}</ProjectGuid>
-=======
     <ProjectGuid>{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}</ProjectGuid>
->>>>>>> origin/master
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Acceso_BaseDatos</RootNamespace>
     <AssemblyName>Acceso_BaseDatos</AssemblyName>
-<<<<<<< HEAD
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-=======
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
->>>>>>> origin/master
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -42,26 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
-=======
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
->>>>>>> origin/master
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-<<<<<<< HEAD
-=======
     <Reference Include="System.Data.Entity" />
->>>>>>> origin/master
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -105,24 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-<<<<<<< HEAD
-    <None Include="Conexion_Base.edmx.diagram">
-      <DependentUpon>Conexion_Base.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Conexion_Base.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Conexion_Base.edmx</DependentUpon>
-      <LastGenOutput>Conexion_Base.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Conexion_Base.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Conexion_Base.edmx</DependentUpon>
-      <LastGenOutput>Conexion_Base.cs</LastGenOutput>
-    </Content>
-=======
     <None Include="Conexion_Base.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Conexion_Base.edmx</DependentUpon>
@@ -137,7 +95,6 @@
       <LastGenOutput>Conexion_Base.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
