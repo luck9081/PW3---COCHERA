@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
+using Acceso_BaseDatos;
 namespace AlquilaCocheras.Web.MasterPages
 {
     public partial class Clientes : System.Web.UI.MasterPage
@@ -15,8 +16,13 @@ namespace AlquilaCocheras.Web.MasterPages
             {
                 if (Session["usuario"] != null)
                 {
-                    Usuario us = (Usuario)Session["usuario"];
-                    if (us.Tipo.Equals("Cliente"))
+                    string email = Session["usuario"].ToString();
+                    TP_20162CEntities ctx = new TP_20162CEntities();
+                    Usuario user = new Usuario(ctx);
+                    Usuarios us = new Usuarios();
+                    us = user.obtenerUsuario(email);
+
+                    if (us.Perfil == 1)
                         Response.Redirect("/clientes/reservar.aspx");
                 }
                 else

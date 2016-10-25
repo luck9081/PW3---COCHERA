@@ -3,41 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acceso_BaseDatos;
 
 namespace Clases_Roles
 {
     public class Usuario
     {
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Email { get; set; }
-        public string Contrasenia { get; set; }
-        public string Tipo { get; set; }
-
-        public static Dictionary<string, Usuario> usuarios = new Dictionary<string, Usuario>();
-
-        public void agregarUsuario(Usuario us)
+        TP_20162CEntities ctx;
+        public Usuario(TP_20162CEntities contexto)
         {
-            usuarios.Add(us.Email, us);
+            ctx = contexto;
+        }
+        public void agregarUsuario(Usuarios us)
+        {
+            ctx.Usuarios.Add(us);
+            ctx.SaveChanges();
         }
 
-        public bool encontrarUsuario(string email)
+        public bool encontrarMail(string mail)
         {
-            return usuarios.ContainsKey(email);
-        }
-
-        public Usuario obtenerUsuario(string email)
-        {
-            return usuarios[email];
-        }
-
-        public bool CompararContraseñas(string email, string pass)
-        {
-            if (usuarios[email].Contrasenia == pass)
+            Usuarios resultado = (from u in ctx.Usuarios
+                                  where u.Email == mail
+                                  select u).FirstOrDefault();
+            if (resultado != null)
                 return true;
             else
                 return false;
+           
+        
         }
 
+        /* ------------------------------ BÚSQUEDA DE USUARIO ------------------------------ */
+        // Por ID
+        public Usuarios obtenerUsuario(int id)
+        {
+            Usuarios usuario = ctx.Usuarios.First(u => u.IdUsuario == id);
+            return usuario;
+        }
+        //Por Email
+        public Usuarios obtenerUsuario(string mail)
+        {
+            Usuarios usuario = ctx.Usuarios.First(u => u.Email == mail);
+            return usuario;
+        }
+        public bool compararContraseña(string mail, string pass)
+        {
+            Usuarios usuario = obtenerUsuario(mail);
+            if (usuario.Contrasenia == pass)
+                return true;
+            else
+                return false;
+
+        }
     }
 }

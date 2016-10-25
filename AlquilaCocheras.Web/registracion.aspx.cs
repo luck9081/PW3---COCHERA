@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
 using System.Text;
+using Acceso_BaseDatos;
 
 namespace AlquilaCocheras.Web
 {
@@ -18,44 +19,28 @@ namespace AlquilaCocheras.Web
 
         protected void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string tipoUsuario = rblPerfil.SelectedValue;
-            string email = txtEmail.Text;
-            string pass = txtContrasenia.Text;
-
-
-            switch (tipoUsuario)
+            // Existencia del e-mail ingresado
+            TP_20162CEntities ctx = new TP_20162CEntities();
+            Usuario us = new Usuario(ctx);
+            if (us.encontrarMail(txtEmail.Text))
             {
-                case "1":
-                    Usuario usCliente = new Cliente();
-                    setUsuario(nombre, apellido, email, tipoUsuario, pass, usCliente);
-                    break;
-                case "2":
-                    Usuario usPropietario = new Propietario();
-                    setUsuario(nombre, apellido, email, tipoUsuario, pass, usPropietario);
-                    break;
+                lblResultado.Text = "Este mail ya ha sido registrado";
             }
-            string mensaje = "<h2>Registración Existosa! Diríjase al <a href='login.aspx'><span class='label label-info'>login</span></a>.</h2>";
-            lblResultado.Text = mensaje;
-            lblResultado.Visible = true;
-            titulo.Visible = false;
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtEmail.Text = "";
+            else
+            {
+                Usuarios user = new Usuarios();  // Creo un objeto Usuarios (tabla)
+                //Seteo los datos
+                user.Nombre = txtNombre.Text;
+                user.Email = txtEmail.Text;
+                user.Contrasenia = txtContrasenia.Text;
+                user.Perfil = Byte.Parse(rblPerfil.SelectedValue);
+                us.agregarUsuario(user);
+                string mensaje = "<h2>Registración Exitosa! dirijase al <a href='login.aspx'><span class='label label-info'>login</span></a>.</h2>";
+                lblResultado.Text = mensaje;
+            }
 
         }
-        private static void setUsuario(string nombre, string apellido, string email, string tipo, string contrasenia, Usuario us)
-        {
-            us.Nombre = nombre;
-            us.Apellido = apellido;
-            us.Email= email;
-            us.Tipo = tipo;
-            us.Contrasenia = contrasenia;
-
-            us.agregarUsuario(us);
-
-        }
+      
 
     }
 }

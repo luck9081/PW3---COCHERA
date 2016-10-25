@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlquilaCocheras.Web", "Alqu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases_Roles", "Clases_Roles\Clases_Roles.csproj", "{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceso_BaseDatos", "Acceso_BaseDatos\Acceso_BaseDatos.csproj", "{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9BA6DEF-A286-42FA-8A44-7BBBC47DF1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0482CF-7D8F-4CA8-B1C4-F5C60C33742D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
