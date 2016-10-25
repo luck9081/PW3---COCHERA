@@ -1,0 +1,67 @@
+drop database cochera;
+create database cochera;
+use cochera;
+
+create table usuario(
+id_usuario int primary key identity,
+nombre varchar(30) not null,
+apellido varchar(30) not null,
+mail varchar(30)not null,
+tipo int,
+pass varchar(35)
+);
+
+create table ubicacion(
+id_ubicacion int primary key identity,
+descripcion varchar(50),
+latitud varchar(30),
+longitud varchar(30)
+);
+
+create table cochera(
+id_cochera int primary key identity,
+descripcion varchar(255),
+fecha_inicio date,
+fecha_fin date,
+hora_inicio time,
+hora_fin time,
+metros_cuad int,
+precio float,
+fk_ubicacion int,
+fk_usuario int,
+foreign key (fk_ubicacion) references ubicacion(id_ubicacion),
+foreign key (fk_usuario) references usuario(id_usuario),
+foto varchar(35)
+)
+
+create table vehiculo(
+id_vehiculo int primary key identity,
+descripcion varchar(30)
+)
+
+create table puntuacion(
+puntuacion int,
+fk_usuario int,
+fk_cochera int,
+primary key (fk_cochera,fk_usuario),
+foreign key(fk_usuario) references usuario (id_usuario),
+foreign key(fk_cochera) references cochera(id_cochera)
+)
+
+create table vehiculo_cochera(
+fk_vehiculo int,
+fk_cochera int,
+primary key (fk_cochera,fk_vehiculo),
+foreign key(fk_vehiculo) references vehiculo(id_vehiculo),
+foreign key (fk_cochera) references cochera(id_cochera)
+)
+
+create table reserva(
+fk_cochera int,
+fk_usuario int,
+fk_ubicacion int,
+primary key (fk_cochera,fk_usuario,fk_ubicacion),
+foreign key (fk_cochera) references cochera(id_cochera),
+foreign key (fk_usuario) references usuario (id_usuario),
+foreign key (fk_ubicacion) references ubicacion(id_ubicacion)
+)
