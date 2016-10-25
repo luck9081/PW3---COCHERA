@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Conexion_BD
+namespace Acceso_Datos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TP_20162CEntities : DbContext
+    public partial class cocheraEntities : DbContext
     {
-        public TP_20162CEntities()
-            : base("name=TP_20162CEntities")
+        public cocheraEntities()
+            : base("name=cocheraEntities")
         {
         }
     
@@ -25,8 +25,12 @@ namespace Conexion_BD
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Cocheras> Cocheras { get; set; }
-        public DbSet<Reservas> Reservas { get; set; }
-        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<cochera> cochera { get; set; }
+        public DbSet<puntuacion> puntuacion { get; set; }
+        public DbSet<reserva> reserva { get; set; }
+        public DbSet<ubicacion> ubicacion { get; set; }
+        public DbSet<usuario> usuario { get; set; }
+        public DbSet<vehiculo> vehiculo { get; set; }
+        public DbSet<vehiculo_cochera> vehiculo_cochera { get; set; }
     }
 }

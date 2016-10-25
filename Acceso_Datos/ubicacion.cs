@@ -12,22 +12,20 @@ namespace Acceso_Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class ubicacion
     {
-        public Usuarios()
+        public ubicacion()
         {
-            this.Cocheras = new HashSet<Cocheras>();
-            this.Reservas = new HashSet<Reservas>();
+            this.cochera = new HashSet<cochera>();
+            this.reserva = new HashSet<reserva>();
         }
     
-        public int IdUsuario { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Email { get; set; }
-        public string Contrasenia { get; set; }
-        public short Perfil { get; set; }
+        public int id_ubicacion { get; set; }
+        public string descripcion { get; set; }
+        public string latitud { get; set; }
+        public string longitud { get; set; }
     
-        public virtual ICollection<Cocheras> Cocheras { get; set; }
-        public virtual ICollection<Reservas> Reservas { get; set; }
+        public virtual ICollection<cochera> cochera { get; set; }
+        public virtual ICollection<reserva> reserva { get; set; }
     }
 }
