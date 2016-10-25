@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
-
+using Acceso_BaseDatos;
 namespace AlquilaCocheras.Web.MasterPages
 {
     public partial class Propietarios : System.Web.UI.MasterPage
@@ -14,11 +14,14 @@ namespace AlquilaCocheras.Web.MasterPages
         {
             if (Session["usuario"] != null)
             {
-                Usuario us = (Usuario)Session["usuario"];   // Guarda en una clase instanciada la variable de sesion (que contiene un objeto de tipo Usuario)
+                string email = Session["usuario"].ToString();
+                TP_20162CEntities ctx = new TP_20162CEntities();
+                Usuario user = new Usuario(ctx);
+                Usuarios us = new Usuarios();
+                us = user.obtenerUsuario(email);
 
-                
-                if (us.Tipo.Equals("1"))                                // Como ya sabemos que la sesion está iniciada, el Tipo de usuario solo puede valer 1 o 2
-                    Response.Redirect("/cliente/reservas.aspx",true);   // Y si vale 1, lo cual significa CLIENTE, redireccionamos a una página correspondiente a CLIENTE
+                if (us.Perfil == 2)
+                    Response.Redirect("/propietarios/reservas.aspx");
             }
             else
             {

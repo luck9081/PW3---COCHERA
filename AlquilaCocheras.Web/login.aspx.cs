@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
-
+using Acceso_BaseDatos;
 namespace AlquilaCocheras.Web
 {
     public partial class login : System.Web.UI.Page
@@ -18,36 +18,30 @@ namespace AlquilaCocheras.Web
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Usuario us = new Usuario();
+            TP_20162CEntities ctx = new TP_20162CEntities();
+            Usuario us = new Usuario(ctx);
             string email = txtEmail.Text;
-            string pass= txtContrasenia.Text;
-            bool flag = us.encontrarUsuario(email);
-
-            if (flag)
+            string pass = txtContrasenia.Text;
+            if (us.encontrarMail(email))
             {
-                us = us.obtenerUsuario(email);
-                if (us.Tipo == "1" & us.CompararContraseñas(email, pass))
-                {
-                    Response.Redirect("/clientes/reservar.aspx?pestaña=cliReservar", false);
-                }
+                Usuarios user = new Usuarios();
+                user = us.obtenerUsuario(email);
+                bool flag = us.compararContraseña(email, pass);
+                if (user.Perfil == 1 & flag) //TIPO 1 ES CLIENTE
+                 Response.Redirect("/clientes/reservar.aspx", false);
+                else if (user.Perfil == 2 & flag) // TIPO 2 ES PROPIETARIO
+                  Response.Redirect("/propietarios/reservas.aspx", false);
                 else
-                {
-                    if (us.Tipo == "2" & us.CompararContraseñas(email, pass))
-                    {
-                        Response.Redirect("/propietarios/reservas.aspx?pestaña=propReservas", false);
-                    }
-                    else
-                        lblResultado.Text = "La contraseña es erronea";
-                }
-                HttpContext.Current.Session["usuario"] = us;
+                    lblResultado.Text="La contraseña no coincide";
+
+                HttpContext.Current.Session["usuario"] = user.Email;
             }
-            else
-            {
-                lblResultado.Text = "El mail no ha sido registrado";
-            }
-        }
-             
-   }
+            else 
+                lblResultado.Text="La cuenta no ha sido registrada";
+         }
+            
+    }          
+  
 }
  
 

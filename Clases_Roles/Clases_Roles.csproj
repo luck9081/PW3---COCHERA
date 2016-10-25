@@ -58,7 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acceso_BaseDatos\Acceso_BaseDatos.csproj">
+<<<<<<< HEAD
       <Project>{55db817d-c418-4c73-ab96-0907541651a4}</Project>
+=======
+      <Project>{3f0482cf-7d8f-4ca8-b1c4-f5c60c33742d}</Project>
+>>>>>>> origin/master
       <Name>Acceso_BaseDatos</Name>
     </ProjectReference>
   </ItemGroup>
