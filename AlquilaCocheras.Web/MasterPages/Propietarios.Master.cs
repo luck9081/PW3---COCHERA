@@ -20,7 +20,7 @@ namespace AlquilaCocheras.Web.MasterPages
                 Usuarios us = new Usuarios();
                 us = user.obtenerUsuario(email);
 
-                if (us.Perfil == 2)
+                if (us.Perfil == '2')
                     Response.Redirect("/propietarios/reservas.aspx");
             }
             else

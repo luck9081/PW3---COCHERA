@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
+using Acceso_BaseDatos;
 
 namespace AlquilaCocheras.Web
 {
@@ -16,14 +17,17 @@ namespace AlquilaCocheras.Web
 
             if (Session["usuario"] != null)
             {
-                Usuario us = (Usuario)Session["usuario"];
-
-                if (us.Tipo == "1")
+                string email = Session["usuario"].ToString();
+                TP_20162CEntities ctx = new TP_20162CEntities();
+                Usuario us = new Usuario(ctx);
+                Usuarios user = new Usuarios();
+                user = us.obtenerUsuario(email);
+                if (user.Perfil == 1)
                 {
                     menuCliente.Visible = true;     // Si el tipo es "1", entonces mostramos Cliente
                     menuAnonimo.Visible = false;    // y ocultamos Anonimo
                 }
-                else if (us.Tipo == "2")
+                else if (user.Perfil == 2)
                 {
                     menuPropietario.Visible = true;     // Si el tipo es "2", entonces mostramos Propietario
                     menuAnonimo.Visible = false;        // y ocultamos Anonimo
