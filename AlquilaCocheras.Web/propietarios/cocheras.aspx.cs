@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Clase_Usuario;
 
 namespace AlquilaCocheras.Web.propietarios
 {
@@ -19,7 +20,25 @@ namespace AlquilaCocheras.Web.propietarios
             if (Page.IsValid && IsPostBack)
             {
                 divResultado.Visible = true;
+                Cochera cochera = new Cochera(
+                    1,
+                    txtUbicacion.Text,
+                    txtFechaInicio.Text,
+                    txtFechaFin.Text,
+                    txtHorarioInicio.Text,
+                    txtHorarioFin.Text,
+                    txtDescripcion.Text,
+                    fuFoto.PostedFile.FileName,
+                    txtLatitud.Text,
+                    txtLongitud.Text,
+                    txtPrecioHora.Text,
+                    txtMetrosCuadrados.Text,
+                    lbTipoVehiculo.SelectedValue
+                );
+                if (cochera.cargarCochera())
+                {
+                    divResultado.Visible = true;
+                }
             }
-        }
     }
 }
