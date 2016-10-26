@@ -301,3 +301,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Acceso_BaseDatos/App.Config
+AlquilaCocheras.Web/Web.config
