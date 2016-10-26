@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Acceso_BaseDatos;
 
 namespace AlquilaCocheras.Web.propietarios
 {
@@ -14,23 +15,26 @@ namespace AlquilaCocheras.Web.propietarios
         {            
             if (Session["usuario"] != null && !IsPostBack)
             {
-                Usuario usuario = (Usuario)Session["usuario"];
-                txtNombre.Text = usuario.Nombre;
-                txtEmail.Text = usuario.Email;
-                txtApellido.Text = usuario.Apellido;
-                txtContrasenia.Text = usuario.Contrasenia;
-                string pass = usuario.Contrasenia;               
+                
+                
+               /* Usuarios user = (Usuarios)Session["usuario"];
+                txtNombre.Text = user.Nombre;
+                txtEmail.Text = user.Email;
+                txtApellido.Text = user.Apellido;
+                txtContrasenia.Text = user.Contrasenia;
+                string pass = user.Contrasenia;         */    
+           
             }
 
             if (Session["usuario"] != null && IsPostBack)
             {
-                Usuario usuario = new Usuario();
-                usuario.Nombre = txtNombre.Text;
-                usuario.Apellido = txtApellido.Text;
-                usuario.Email = txtEmail.Text;
-                usuario.Tipo = "2";
-                usuario.Contrasenia = txtContrasenia.Text;
-                Session["usuario"] = usuario;                
+               // 
+               // usuario.Nombre = txtNombre.Text;
+               // usuario.Apellido = txtApellido.Text;
+               // usuario.Email = txtEmail.Text;
+               // usuario.Tipo = "2";
+               // usuario.Contrasenia = txtContrasenia.Text;
+               // Session["usuario"] = usuario;                
             }
         }
 

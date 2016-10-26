@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Acceso_BaseDatos;
 namespace AlquilaCocheras.Web.MasterPages
 {
     public partial class Base : System.Web.UI.MasterPage
@@ -14,11 +14,8 @@ namespace AlquilaCocheras.Web.MasterPages
         {
             if (Session["usuario"] != null)
             {
-                Usuario us = (Usuario)Session["usuario"];
-                if (us.Tipo.Equals("2"))
-                {
-                    body.Attributes.Add("class", "contenedor-perfil");
-                }
+               
+               
             }            
         }
     }

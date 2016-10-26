@@ -31,12 +31,15 @@ namespace AlquilaCocheras.Web
                 Usuarios user = new Usuarios();  // Creo un objeto Usuarios (tabla)
                 //Seteo los datos
                 user.Nombre = txtNombre.Text;
+                user.Apellido = txtApellido.Text;
                 user.Email = txtEmail.Text;
                 user.Contrasenia = txtContrasenia.Text;
                 user.Perfil = Byte.Parse(rblPerfil.SelectedValue);
                 us.agregarUsuario(user);
                 string mensaje = "<h2>Registración Exitosa! dirijase al <a href='login.aspx'><span class='label label-info'>login</span></a>.</h2>";
                 lblResultado.Text = mensaje;
+                lblResultado.Visible = true;
+                titulo.Visible = false;
             }
 
         }
