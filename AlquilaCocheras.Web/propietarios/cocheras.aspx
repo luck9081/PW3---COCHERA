@@ -38,12 +38,13 @@
                             <br />
                                 
                             <i class="fa fa-arrows-h prefix fav-icon-mail" aria-hidden="true"></i>
-                            <asp:TextBox ID="txtLatitud" placeholder="Latitud" CssClass="form-control input-lg" runat="server" ClientIDMode="Static" Enabled="True" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="txtLatitud" placeholder="Latitud" CssClass="form-control input-lg" runat="server" ClientIDMode="Static" Enabled="True" ReadOnly="True" ValidateRequestMode="Disabled"></asp:TextBox>
                                 
                             <br />
                                 
                             <i class="fa fa-arrows-v prefix fav-icon-input" aria-hidden="true"></i>
-                            <asp:TextBox ID="txtLongitud" placeholder="Longitud" CssClass="form-control input-lg" runat="server" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="txtLongitud" placeholder="Longitud" CssClass="form-control input-lg" runat="server" ClientIDMode="Static" ReadOnly="True" ValidateRequestMode="Disabled"></asp:TextBox>
+                        
                         </div>
         
                         <br />
@@ -123,7 +124,7 @@
 
                         <div class="form-group md-form">
                             <asp:Label ID="label8" CssClass="fuente-mediana" for="lbTipoVehiculo" runat="server" Text="Tipo Vehículo: "></asp:Label>
-                            <asp:ListBox ID="lbTipoVehiculo" CssClass="form-control" runat="server" ClientIDMode="Static" SelectionMode="Multiple">
+                            <asp:ListBox ID="lbTipoVehiculo" CssClass="form-control" runat="server" ClientIDMode="Static" SelectionMode="Multiple" Rows="2">
                                 <asp:ListItem Value="0">Auto</asp:ListItem>
                                 <asp:ListItem Value="1">Pickup</asp:ListItem>
                                 <asp:ListItem Value="2">Camion</asp:ListItem>

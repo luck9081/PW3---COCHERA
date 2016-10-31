@@ -22,19 +22,30 @@ namespace AlquilaCocheras.Web
             Usuario us = new Usuario(ctx);
             string email = txtEmail.Text;
             string pass = txtContrasenia.Text;
+
             if (us.encontrarMail(email))
             {
                 Usuarios user = new Usuarios();
                 user = us.obtenerUsuario(email);
                 bool flag = us.compararContraseña(email, pass);
-                if (user.Perfil == 1 & flag) //TIPO 1 ES CLIENTE
-                 Response.Redirect("/clientes/reservar.aspx", false);
-                else if (user.Perfil == 2 & flag) // TIPO 2 ES PROPIETARIO
-                  Response.Redirect("/propietarios/reservas.aspx", false);
-                else
-                    lblResultado.Text="La contraseña no coincide";
 
-                HttpContext.Current.Session["usuario"] = user.Email;
+                if (flag)   // Si el email y la contraseña están registrados
+                {
+                    HttpContext.Current.Session["usuario"] = user.Email;    // Loguea y guarda en sesion el email
+
+                    if (Request.QueryString["url"] == null && user.Perfil == 1) // Si el usuario ingresa al login sin ser redirigido y TIPO 1 ES CLIENTE
+                        Response.Redirect("/clientes/reservar.aspx?pestaña=cliReservar", false);
+
+                    else if (Request.QueryString["url"] == null && user.Perfil == 2) // Si el usuario ingresa al login sin ser redirigido y TIPO 2 ES PROPIETARIO
+                        Response.Redirect("/propietarios/reservas.aspx?pestaña=propReservas", false);
+
+                    else if (Request.QueryString["url"] != null)    // Si el usuario fue redirigido al login, y luego necesita ser redirigido al destino original
+                        Response.Redirect(Request.QueryString["url"], false);
+                }
+                else
+                {
+                    lblResultado.Text = "La contraseña no coincide";
+                }
             }
             else 
                 lblResultado.Text="La cuenta no ha sido registrada";

@@ -10,10 +10,12 @@ namespace Clases_Roles
     public class Usuario
     {
         TP_20162CEntities ctx;
+
         public Usuario(TP_20162CEntities contexto)
         {
             ctx = contexto;
         }
+
         public void agregarUsuario(Usuarios us)
         {
             ctx.Usuarios.Add(us);
@@ -28,9 +30,20 @@ namespace Clases_Roles
             if (resultado != null)
                 return true;
             else
-                return false;
-           
-        
+                return false; 
+        }
+
+        public void modificarPerfil(string emailBusqueda, string nombre, string apellido, string email, string contrasenia,Int16 tipo)
+        {
+            Usuarios us = obtenerUsuario(emailBusqueda);
+            
+            us.Nombre = nombre;
+            us.Apellido = apellido;
+            us.Email = email;
+            us.Contrasenia = contrasenia;
+            us.Perfil = tipo;
+
+            ctx.SaveChanges();
         }
 
         /* ------------------------------ BÚSQUEDA DE USUARIO ------------------------------ */
@@ -40,12 +53,14 @@ namespace Clases_Roles
             Usuarios usuario = ctx.Usuarios.First(u => u.IdUsuario == id);
             return usuario;
         }
+
         //Por Email
         public Usuarios obtenerUsuario(string mail)
         {
-            Usuarios usuario = ctx.Usuarios.First(u => u.Email == mail);
+            Usuarios usuario = ctx.Usuarios.FirstOrDefault(u => u.Email == mail);
             return usuario;
         }
+
         public bool compararContraseña(string mail, string pass)
         {
             Usuarios usuario = obtenerUsuario(mail);
@@ -53,7 +68,6 @@ namespace Clases_Roles
                 return true;
             else
                 return false;
-
         }
     }
 }

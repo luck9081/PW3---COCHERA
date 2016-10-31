@@ -12,7 +12,17 @@ namespace AlquilaCocheras.Web.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] != null)
+            if (Session["usuario"] == null)
+            {
+                // Guardo la redireccion al Login en un string,
+                // el cual también posee la URL actual en una variable pasada por "GET"
+
+                string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
+
+                Response.Redirect(url, true);    // Y aquí efectivamente redirijo al Login
+            }
+
+            /*if (Session["usuario"] != null)
             {
                 string email = Session["usuario"].ToString();
                 TP_20162CEntities ctx = new TP_20162CEntities();
@@ -31,7 +41,7 @@ namespace AlquilaCocheras.Web.MasterPages
                 string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
 
                 Response.Redirect(url,true);    // Y aquí efectivamente redirijo al Login
-            }
+            }*/
         }
     }
 }

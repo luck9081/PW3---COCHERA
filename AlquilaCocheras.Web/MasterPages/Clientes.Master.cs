@@ -14,20 +14,7 @@ namespace AlquilaCocheras.Web.MasterPages
         {
             if (!IsPostBack)
             {
-                if (Session["usuario"] != null)
-                {
-                    string email = Session["usuario"].ToString();
-                    TP_20162CEntities ctx = new TP_20162CEntities();
-                    Usuario user = new Usuario(ctx);
-                    Usuarios us = new Usuarios();
-                    us = user.obtenerUsuario(email);
-
-                    if (us.Perfil == '1')
-                    {
-                        Response.Redirect("/clientes/reservar.aspx");
-                    }
-                }
-                else
+                if (Session["usuario"] == null)
                 {
                     string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
                     Response.Redirect(url);

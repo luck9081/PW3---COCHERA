@@ -72,7 +72,7 @@ namespace Clase_Usuario
             }
         }
 
-        public bool cargarCochera(/*Usuarios propietario*/) // Carga en base de datos la cochera
+        public bool cargarCochera() // Carga en base de datos la cochera
         {
             if (!existeCochera())    // utilizamos el método existeCochera() para saber si existe la cochera de antemano
             {
