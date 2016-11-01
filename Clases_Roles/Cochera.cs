@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Acceso_BaseDatos;
+using Clases_Roles;
 
 namespace Clase_Usuario
 {
     public class Cochera
     {
         private Int32 IdPropietario;
-        private Decimal Latitud = 0;
-        private Decimal Longitud = 0;
+        private Decimal Latitud;
+        private Decimal Longitud;
         private Decimal Precio;
         private Int32 Area;
         private Int16 Vehiculo;
@@ -49,7 +50,9 @@ namespace Clase_Usuario
             FechaInicio = DateTime.Parse(fechaInicio);
             FechaFin = Convert.ToDateTime(fechaFin);
             //Latitud = Decimal.Parse(lat);
-           // Longitud = Decimal.Parse(lon);
+            //Longitud = Decimal.Parse(lon);
+            Latitud = 0;
+            Longitud = 0;
             Precio = Decimal.Parse(precio);
             Area = Int32.Parse(area);
             Vehiculo = Int16.Parse(vehiculo);
@@ -72,14 +75,19 @@ namespace Clase_Usuario
             }
         }
 
-        public bool cargarCochera() // Carga en base de datos la cochera
+        public bool cargarCochera(string emailBusqueda) // Carga en base de datos la cochera
         {
             if (!existeCochera())    // utilizamos el método existeCochera() para saber si existe la cochera de antemano
             {
                 TP_20162CEntities context = new TP_20162CEntities();
                 Cocheras cocheraBD = new Cocheras();
+                Usuarios usuarioBD = new Usuarios();
 
-                cocheraBD.IdCochera = IdPropietario;
+                Usuario us = new Usuario(context);
+
+                usuarioBD = us.obtenerUsuario(emailBusqueda);
+
+                cocheraBD.IdPropietario = usuarioBD.IdUsuario;
                 cocheraBD.Ubicacion = Ubicacion;
                 cocheraBD.FechaInicio = FechaInicio;
                 cocheraBD.FechaFin = FechaFin;
@@ -93,9 +101,10 @@ namespace Clase_Usuario
                 cocheraBD.MetrosCuadrados = Area;
                 cocheraBD.TipoVehiculo = Vehiculo;
 
-                cocheraBD.Usuarios = context.Usuarios.Find(1);
+                usuarioBD.Cocheras.Add(cocheraBD);
 
                 context.Cocheras.Add(cocheraBD);
+
                 context.SaveChanges();
 
                 return true;    // Retornamos que se ha hecho el insert exitosamente, esto nos dará control para actuar en consecuencia en el aspx

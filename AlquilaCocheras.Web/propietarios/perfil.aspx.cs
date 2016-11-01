@@ -36,9 +36,6 @@ namespace AlquilaCocheras.Web.propietarios
                 Usuario us = new Usuario(ctx);
                 string emailBusqueda = (string)Session["usuario"];
 
-                Usuarios user = new Usuarios();
-                user = us.obtenerUsuario(emailBusqueda);
-
                 us.modificarPerfil(emailBusqueda, txtNombre.Text, txtApellido.Text, txtEmail.Text, txtContrasenia.Text, 2);
 
                 Session["usuario"] = txtEmail.Text;

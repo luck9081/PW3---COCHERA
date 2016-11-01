@@ -38,7 +38,7 @@ namespace AlquilaCocheras.Web.propietarios
                     lbTipoVehiculo.SelectedValue
                 );
 
-                if (cochera.cargarCochera())
+                if (cochera.cargarCochera((string)Session["usuario"]))
                 {
                     divResultado.Visible = true;
                 }
