@@ -11,7 +11,7 @@
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">                
                 <div role="form">
 
-                    <h2 class="animated flipInX">Ver Reservas</h2>                
+                    <h2 class="animated flipInX">Ver Reservas</h2>     
 				    
                     <div class="animated slideInLeft">
                         <hr class="colorgraph">
@@ -43,61 +43,7 @@
 
                         <!--Tabla-->
                         <div id="tblReservas" class="table-responsive animated zoomIn" runat="server" visible="false">
-                            <table class="table product-table">
-                                <!--Table head-->
-                                <thead>
-                                    <tr>
-                                        <th>Ubicación</th>
-                                        <th>Cant. Horas</th>
-                                        <th>Reservado por</th>
-                                        <th>Puntuación</th>
-                                        <th>Total Cobrado</th>
-                                    </tr>
-                                </thead>
-                                <!--/Table head-->
-
-                                <!--Table body-->
-                                <tbody>
-
-                                    <!--First row-->
-                                    <tr>
-                                        <td>
-                                            <h5><strong>Ubicacion1</strong></h5>
-                                        </td>
-                                        <td>10</td>
-                                        <td>J</td>
-                                        <td>4/5</td>
-                                        <td>$ 200</td>
-                                    </tr>
-                                    <!--/First row-->
-
-                                    <!--Second row-->
-                                    <tr class="light-blue accent-1">
-                                        <td>
-                                            <h5><strong>Ubicacion2</strong></h5>
-                                        </td>
-                                        <td>2</td>
-                                        <td>L</td>
-                                        <td>2/5</td>
-                                        <td>$ 600</td>
-                                    </tr>
-                                    <!--/Second row-->
-
-                                    <!--Third row-->
-                                    <tr>
-                                        <td>
-                                            <h5><strong>Ubicacion3</strong></h5>
-                                        </td>
-                                        <td>12</td>
-                                        <td>M</td>
-                                        <td>3/5</td>
-                                        <td>$ 600</td>
-                                    </tr>
-                                    <!--/Third row-->
-
-                                </tbody>
-                                <!--/Table body-->
-                            </table>
+                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                         </div>
                         <!--Fin Tabla-->
 

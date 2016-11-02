@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Clase_Usuario;
 
 namespace AlquilaCocheras.Web.propietarios
 {
@@ -34,6 +35,11 @@ namespace AlquilaCocheras.Web.propietarios
            if (IsPostBack && Page.IsValid)
            {
                 tblReservas.Visible = true;
+
+                Reserva reserva = new Reserva(txtFechaInicio.Text, txtFechaFin.Text,(string)Session["usuario"]);
+
+                GridView1.DataSource = reserva.listaReservas();
+                GridView1.DataBind();
            }
         }
     }

@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4fbc8bb9d9bd4b91aeb271abecf84786" Name="Diagrama1" ZoomLevel="150">
-        <EntityTypeShape EntityType="TP_20162CModel.Cocheras" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP_20162CModel.Reservas" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP_20162CModel.Usuarios" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP_20162CModel.Cocheras" Width="2.125" PointX="3.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP_20162CModel.Reservas" Width="1.875" PointX="6.625" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP_20162CModel.Usuarios" Width="2" PointX="0.5" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="TP_20162CModel.FK_Cocheras_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="TP_20162CModel.FK_Reservas_Cocheras" ManuallyRouted="false" />
         <AssociationConnector Association="TP_20162CModel.FK_Reservas_Usuarios" ManuallyRouted="false" />
