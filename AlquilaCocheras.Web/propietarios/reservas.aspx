@@ -8,7 +8,7 @@
 
     <div class="container espaciado-superior espaciado-inferior">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">                
+            <div class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-1">
                 <div role="form">
 
                     <h2 class="animated flipInX">Ver Reservas</h2>     
@@ -42,9 +42,47 @@
                         <br />
 
                         <!--Tabla-->
-                        <div id="tblReservas" class="table-responsive animated zoomIn" runat="server" visible="false">
-                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-                        </div>
+	                        <div id="tblReservas" class="table-responsive animated zoomIn" runat="server" visible="false">
+		                        <table class="table product-table">
+			                        <!--Table head-->
+			                        <thead>
+				                        <tr>
+					                        <th>Ubicación</th>
+                                            <th>Fecha Inicio</th>
+                                            <th>Fecha Fin</th>
+                                            <th>Reservado por</th>
+					                        <th>Cant. Horas</th>
+                                            <th>Total Cobrado</th>
+                                            <th>Puntuación</th>
+				                        </tr>
+			                        </thead>
+			                        <!--/Table head-->
+
+			                        <!--Table body-->
+			                        <tbody>
+
+				                        <asp:Repeater ID="Repeater1" runat="server">
+
+                                            <ItemTemplate>
+                                                <tr <% if (DateTime.Parse(Eval("Fecha_Fin").ToString()) < DateTime.Now) { Response.Write("class='light-blue accent-1'"); } %>  >
+					                                <td>
+						                                <h5><strong><%# Eval("Ubicación") %></strong></h5>
+					                                </td>
+					                                <td><%# Eval("Fecha_Inicio") %></td>
+                                                    <td><%# Eval("Fecha_Fin") %></td>
+                                                    <td><%# Eval("Usuario_Que_Reservó") %></td>
+                                                    <td><%# Eval("Cantidad_Horas") %></td>
+					                                <td>$ <%# Eval("Total_Cobrado") %></td>
+                                                    <td><%# Eval("Puntuación") %></td>
+				                                </tr>
+                                            </ItemTemplate>
+
+                                        </asp:Repeater>
+
+			                        </tbody>
+			                        <!--/Table body-->
+		                        </table>
+	                        </div>
                         <!--Fin Tabla-->
 
                         <div class="form-group md-form">

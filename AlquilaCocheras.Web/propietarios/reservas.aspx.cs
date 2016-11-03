@@ -38,8 +38,10 @@ namespace AlquilaCocheras.Web.propietarios
 
                 Reserva reserva = new Reserva(txtFechaInicio.Text, txtFechaFin.Text,(string)Session["usuario"]);
 
-                GridView1.DataSource = reserva.listaReservas();
-                GridView1.DataBind();
+                var lista = reserva.listaReservas();
+
+                Repeater1.DataSource = lista;
+                Repeater1.DataBind();
            }
         }
     }
