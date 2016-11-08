@@ -6,6 +6,7 @@ using System.Web.Services;
 using Acceso_BaseDatos;
 using Clases_Roles;
 using Clase_Usuario;
+
 namespace AlquilaCocheras.Web.servicios
 {
     /// <summary>
@@ -23,7 +24,26 @@ namespace AlquilaCocheras.Web.servicios
         [WebMethod]
         public List<cocherasDTO> obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
-            List<Cocheras> lista = 
+            TP_20162CEntities ctx = new TP_20162CEntities();
+
+            var listado = (
+                    from r in ctx.Reservas
+                    join c in ctx.Cocheras on r.IdCochera equals c.IdCochera
+                    join u in ctx.Usuarios on c.IdPropietario equals u.IdUsuario
+                    where c.Ubicacion == ubicacion && (r.FechaFin <= fechaFin || r.FechaInicio >= fechaInicio)
+
+                    select new
+                    {
+                        Ubicación = c.Ubicacion,
+                        Fecha_Inicio = r.FechaInicio,
+                        Fecha_Fin = r.FechaFin,
+                        Usuario_Que_Reservó = string.Concat(u.Nombre, " ", u.Apellido),
+                        Cantidad_Horas = r.CantidadHoras,
+                        Total_Cobrado = r.CantidadHoras * r.Precio,
+                        Puntuación = r.Puntuacion
+
+                    }).ToList();
+
         }
     }
 }

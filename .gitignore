@@ -301,3 +301,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Clases_Roles/ClassDiagram1.cd
+AlquilaCocheras.Web/packages.config
+AlquilaCocheras.Web/AlquilaCocheras.Web.csproj

@@ -103,6 +103,7 @@
     <Content Include="obj\Debug\AlquilaCocheras.Web.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AlquilaCocheras.Web.dll" />
     <Content Include="obj\Debug\AlquilaCocheras.Web.pdb" />
+    <Content Include="servicios\Cocheras.asmx" />
     <Content Include="UCFooterDefault.ascx" />
     <Content Include="UCMenuDefault.ascx" />
     <Content Include="imagenes\redesSociales\fb.png" />
@@ -174,6 +175,10 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="servicios\Cocheras.asmx.cs">
+      <DependentUpon>Cocheras.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UCFooterDefault.ascx.cs">
       <DependentUpon>UCFooterDefault.ascx</DependentUpon>
@@ -298,7 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="servicios\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acceso_BaseDatos\Acceso_BaseDatos.csproj">

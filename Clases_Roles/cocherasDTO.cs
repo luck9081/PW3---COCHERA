@@ -9,18 +9,25 @@ namespace Clase_Usuario
 {
    public class cocherasDTO
     {
-       TP_20162CEntities ctx = new TP_20162CEntities();
+        private int Numero;
+        private int PrecioHora;
+        private int PrecioTotal;
+        private string NombrePropietario;
+        private string Imagen;
+        private decimal Latitud;
+        private decimal Longitud;
+        private int Puntuacion;
 
-       public cocherasDTO(TP_20162CEntities context)
-       {
-           ctx = context;
-       }
-
-       public List<Cocheras> obtenerCocheras(string ubicacion, DateTime? fechaI, DateTime? fechaF)
-       {
-           var lista = ctx.Cocheras.Where(i => i.Ubicacion == ubicacion && (i.FechaFin == fechaI || i.FechaFin == fechaF)).ToList();
-           return lista;
-       
-       }
+        public cocherasDTO(int numero,int precioHora,int precioTotal,string nombrePropietario,string img,decimal lat,decimal lon,int puntuacion)
+        {
+            Numero = numero;
+            PrecioHora = precioHora;
+            PrecioTotal = precioTotal;
+            NombrePropietario = nombrePropietario;
+            Imagen = img;
+            Latitud = lat;
+            Longitud = lon;
+            Puntuacion = puntuacion;
+        }
     }
 }
