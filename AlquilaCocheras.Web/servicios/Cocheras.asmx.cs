@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-
+using Acceso_BaseDatos;
+using Clases_Roles;
+using Clase_Usuario;
 namespace AlquilaCocheras.Web.servicios
 {
     /// <summary>
@@ -16,11 +18,12 @@ namespace AlquilaCocheras.Web.servicios
     // [System.Web.Script.Services.ScriptService]
     public class Cocheras : System.Web.Services.WebService
     {
+        TP_20162CEntities ctx = new TP_20162CEntities();
 
         [WebMethod]
-        public string HelloWorld()
+        public List<cocherasDTO> obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
-            return "Hello World";
+            List<Cocheras> lista = 
         }
     }
 }

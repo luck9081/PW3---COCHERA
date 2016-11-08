@@ -10,6 +10,8 @@ namespace Clase_Usuario
 {
     public class Cochera
     {
+        TP_20162CEntities ctx = new TP_20162CEntities();
+
         private Int32 IdPropietario;
         private Decimal Latitud;
         private Decimal Longitud;
@@ -24,6 +26,10 @@ namespace Clase_Usuario
         private string Descripcion;
         private string Imagen;
 
+        public Cochera(TP_20162CEntities context)
+        {
+            ctx = context;
+        }
         // Constructor de Cochera, castear aquellos valores que correspondan
         public Cochera(
             Int32 idPropietario,  // no debería hacer falta castearlo, ya que lo obtiene de Sesion
