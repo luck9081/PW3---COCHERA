@@ -19,7 +19,10 @@ namespace AlquilaCocheras.Web.servicios
     // [System.Web.Script.Services.ScriptService]
     public class Cocheras : System.Web.Services.WebService
     {
-        TP_20162CEntities ctx = new TP_20162CEntities();
+        public Cocheras ()
+        {
+
+        }
 
         [WebMethod]
         public List<cocherasDTO> obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)

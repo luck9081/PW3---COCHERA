@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Clases_Roles;
 using Acceso_BaseDatos;
 using Clase_Usuario;
+using AlquilaCocheras.Web.servicios;
 namespace AlquilaCocheras.Web
 {
     public partial class UCBusquedaDefault : System.Web.UI.UserControl
@@ -30,6 +31,10 @@ namespace AlquilaCocheras.Web
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
+
+            
+
             string ubicacionIncorrecta = "San Justo";
             string ubicacionCorrecta = "Haedo";
             if (txtUbicacion.Text == ubicacionIncorrecta)
