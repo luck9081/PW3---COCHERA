@@ -306,3 +306,5 @@ AlquilaCocheras.Web/packages.config
 AlquilaCocheras.Web/AlquilaCocheras.Web.csproj
 Clases_Roles/App.config
 Clases_Roles/packages.config
+Acceso_BaseDatos/App.Config
+AlquilaCocheras.Web/Web.config
