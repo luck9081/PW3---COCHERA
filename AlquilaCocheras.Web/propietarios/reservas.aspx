@@ -63,8 +63,8 @@
 
 				                        <asp:Repeater ID="Repeater1" runat="server">
 
-                                            <ItemTemplate>
-                                                <tr <% if (DateTime.Parse(Eval("Fecha_Fin").ToString()) < DateTime.Now) { Response.Write("class='light-blue accent-1'"); } %>  >
+                                            <ItemTemplate>                                                
+                                                <tr <%# (DateTime) Eval("Fecha_Fin") < DateTime.Now ? "" : "class='light-blue accent-1'" %>  >
 					                                <td>
 						                                <h5><strong><%# Eval("Ubicación") %></strong></h5>
 					                                </td>

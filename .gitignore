@@ -304,3 +304,10 @@ $RECYCLE.BIN/
 Clases_Roles/ClassDiagram1.cd
 AlquilaCocheras.Web/packages.config
 AlquilaCocheras.Web/AlquilaCocheras.Web.csproj
+Clases_Roles/App.config
+Clases_Roles/packages.config
+AlquilaCocheras.Web/Web.config
+AlquilaCocheras.Web/packages.config
+AlquilaCocheras.Web/AlquilaCocheras.Web.csproj
+Acceso_BaseDatos/App.Config
+Clases_Roles/Clases_Roles.csproj
