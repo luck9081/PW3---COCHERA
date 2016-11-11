@@ -57,6 +57,7 @@ namespace AlquilaCocheras.Web.servicios
                 cocherasDTO cochera = new cocherasDTO(item.numero,item.precio_hora, item.precio_total, item.Usuario_Que_Reservó, item.imagen, item.lat, item.lon, item.Puntuación);
                 lista.Add(cochera);
             }
+            return lista;
         }
     }
 }

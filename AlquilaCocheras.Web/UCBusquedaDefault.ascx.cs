@@ -5,14 +5,16 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Clases_Roles;
+using Acceso_BaseDatos;
+using Clase_Usuario;
 namespace AlquilaCocheras.Web
 {
     public partial class UCBusquedaDefault : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+       
         }
 
         protected void CustomValidator_ServerValidate(object source, ServerValidateEventArgs args)
@@ -22,7 +24,7 @@ namespace AlquilaCocheras.Web
             {
                 CustomValidator1.ErrorMessage = "Se necesita completar al menos 1 campo";
                 args.IsValid = false;
-
+                
             }
         }
 
@@ -43,6 +45,7 @@ namespace AlquilaCocheras.Web
                 {
                     ShowPopUpMsg("Se encontraron resultados");
                 }
+             
             }
         }
         private void ShowPopUpMsg(string msg)

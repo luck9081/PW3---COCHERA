@@ -10,8 +10,8 @@ namespace Clase_Usuario
    public class cocherasDTO
     {
         private int Numero;
-        private int PrecioHora;
-        private int PrecioTotal;
+        private decimal PrecioHora;
+        private decimal PrecioTotal;
         private string NombrePropietario;
         private string Imagen;
         private decimal Latitud;
