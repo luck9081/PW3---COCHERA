@@ -5,14 +5,18 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Clases_Roles;
-using Acceso_BaseDatos;
 using Clase_Usuario;
-using AlquilaCocheras.Web.servicios;
+
 namespace AlquilaCocheras.Web
 {
     public partial class UCBusquedaDefault : System.Web.UI.UserControl
     {
+        public List<cocherasDTO> UCReservas
+        {
+            get { return UCReservas; }
+            set { UCReservas = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
        
@@ -31,7 +35,24 @@ namespace AlquilaCocheras.Web
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            // Instancia del WebService
+
             AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
+
+            // Si alguna de las dos fechas no ha sido completada, mando al webService un "null" como parámetro en su lugar
+
+            if (txtFechaInicio.Text == "")
+            {
+                UCReservas = servicioCocheras.obtenerCocheras(txtUbicacion.Text,null, DateTime.Parse(txtFechaFin.Text));
+            }
+            else if (txtFechaFin.Text == "")
+            {
+                UCReservas = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text),null);
+            }
+            else
+            {
+                UCReservas = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFin.Text));
+            }
 
             
 
@@ -53,6 +74,7 @@ namespace AlquilaCocheras.Web
              
             }
         }
+
         private void ShowPopUpMsg(string msg)
         {
             StringBuilder sb = new StringBuilder();

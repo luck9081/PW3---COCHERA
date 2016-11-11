@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using Acceso_BaseDatos;
-using Clases_Roles;
 using Clase_Usuario;
 
 namespace AlquilaCocheras.Web.servicios
@@ -17,6 +16,7 @@ namespace AlquilaCocheras.Web.servicios
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
+
     public class Cocheras : System.Web.Services.WebService
     {
         public Cocheras ()
@@ -29,6 +29,7 @@ namespace AlquilaCocheras.Web.servicios
         {
             TP_20162CEntities ctx = new TP_20162CEntities();
             List<cocherasDTO> lista = new List<cocherasDTO>();
+
             var listado = (
                     from r in ctx.Reservas
                     join c in ctx.Cocheras on r.IdCochera equals c.IdCochera
@@ -55,8 +56,7 @@ namespace AlquilaCocheras.Web.servicios
 
 
             foreach (var item in listado)
-            {
-               
+            {               
                 cocherasDTO cochera = new cocherasDTO(item.numero,item.precio_hora, item.precio_total, item.Usuario_Que_Reservó, item.imagen, item.lat, item.lon, item.Puntuación);
                 lista.Add(cochera);
             }

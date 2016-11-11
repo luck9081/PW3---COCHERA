@@ -79,6 +79,8 @@
         <img id="banner" class="col-lg-12" src="imagenes/cocheras/banna.gif" />
     </div>
 
+    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
+
     <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
       <thead>
         <tr>
