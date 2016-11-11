@@ -25,7 +25,7 @@ namespace AlquilaCocheras.Web.servicios
         public List<cocherasDTO> obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
             TP_20162CEntities ctx = new TP_20162CEntities();
-
+            List<cocherasDTO> lista = new List<cocherasDTO>();
             var listado = (
                     from r in ctx.Reservas
                     join c in ctx.Cocheras on r.IdCochera equals c.IdCochera
@@ -34,7 +34,13 @@ namespace AlquilaCocheras.Web.servicios
 
                     select new
                     {
+                        numero = c.IdCochera,
+                        precio_hora = c.Precio,
+                        precio_total =r.Precio,
                         Ubicación = c.Ubicacion,
+                        lat = c.Latitud,
+                        lon = c.Longitud,
+                        imagen = c.Imagen,
                         Fecha_Inicio = r.FechaInicio,
                         Fecha_Fin = r.FechaFin,
                         Usuario_Que_Reservó = string.Concat(u.Nombre, " ", u.Apellido),
@@ -44,6 +50,13 @@ namespace AlquilaCocheras.Web.servicios
 
                     }).ToList();
 
+
+            foreach (var item in listado)
+            {
+               
+                cocherasDTO cochera = new cocherasDTO(item.numero,item.precio_hora, item.precio_total, item.Usuario_Que_Reservó, item.imagen, item.lat, item.lon, item.Puntuación);
+                lista.Add(cochera);
+            }
         }
     }
 }

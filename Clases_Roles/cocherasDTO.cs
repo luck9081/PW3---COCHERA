@@ -18,7 +18,7 @@ namespace Clase_Usuario
         private decimal Longitud;
         private int Puntuacion;
 
-        public cocherasDTO(int numero,int precioHora,int precioTotal,string nombrePropietario,string img,decimal lat,decimal lon,int puntuacion)
+        public cocherasDTO(int numero,decimal precioHora,decimal precioTotal,string nombrePropietario,string img,decimal lat,decimal lon,int puntuacion)
         {
             Numero = numero;
             PrecioHora = precioHora;
