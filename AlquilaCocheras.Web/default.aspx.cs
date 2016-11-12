@@ -22,7 +22,7 @@ namespace AlquilaCocheras.Web
 
             if (IsPostBack)
             {
-                Repeater1.DataSource = UCBusquedaDefault.UCReservas;
+                Repeater1.DataSource = UCBusquedaDefault.ReservasUC;
                 Repeater1.DataBind();
             }
         }

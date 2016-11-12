@@ -79,53 +79,38 @@
         <img id="banner" class="col-lg-12" src="imagenes/cocheras/banna.gif" />
     </div>
 
-    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
-
     <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Precio hora</th>
-          <th>Propietario</th>
-          <th>Precio total</th>
-          <th>Foto</th>
-          <th>Ubicación</th>
-          <th>Puntuación</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>$150</td>
-          <td>Gonzalo Gomez</td>
-          <td>$1500</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-          <td>4/5</td>
-          <td><asp:HyperLink ID="aConfirmar" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>$80</td>
-          <td>Juan Alderete</td>
-          <td>$960</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-          <td>2/5</td>
-          <td><asp:HyperLink ID="HyperLink2" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>$180</td>
-          <td>Laura Castro</td>
-          <td>$1980</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-          <td>5/5</td>
-          <td><asp:HyperLink ID="HyperLink3" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Propietario</th>
+                <th>Precio hora</th>
+                <th>Precio total</th>
+                <th>Foto</th>
+                <th>Ubicación</th>
+                <th>Puntuación</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>$ <%# Eval("Usuario_Que_Reservó") %></td>
+                      <td><%# Eval("precio_hora") %></td>
+                      <td>$ <%# Eval("precio_total") %></td>
+                      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+                      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+                      <td> <%# Eval("Puntuación") %> </td>
+                      <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
+
+        </tbody>
     </table>
 
     
