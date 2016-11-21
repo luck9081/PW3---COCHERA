@@ -12,10 +12,12 @@ namespace AlquilaCocheras.Web
     public partial class UCBusquedaDefault : System.Web.UI.UserControl
     {
         // PROPERTY DEL USERCONTROL PARA LA LISTA DE cocheraDTO
+        public List<cocherasDTO> reservasUC = new List<cocherasDTO>();
+
         public List<cocherasDTO> ReservasUC
         {
-            get { return ReservasUC; }
-            set { ReservasUC = value; }
+            get { return reservasUC; }
+            set { reservasUC = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,22 +38,29 @@ namespace AlquilaCocheras.Web
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            // Instancia del WebService
-            AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
+            if (IsPostBack)
+            {
+                // Instancia del WebService
+                AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
 
-            // Si alguna de las dos fechas no ha sido completada, mando al webService un "null" como parámetro en su lugar
-            // y obtengo la lista de cocheraDTO, la cual se la asigno a la property "ReservasUC" del UCBusqueda
-            if (txtFechaInicio.Text == "")
-            {
-                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text,null, DateTime.Parse(txtFechaFin.Text));
-            }
-            else if (txtFechaFin.Text == "")
-            {
-                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text),null);
-            }
-            else
-            {
-                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFin.Text));
+                // Si alguna de las dos fechas no ha sido completada, mando al webService un "null" como parámetro en su lugar
+                // y obtengo la lista de cocheraDTO, la cual se la asigno a la property "ReservasUC" del UCBusqueda
+                if (txtFechaInicio.Text == "" && txtFechaFin.Text != "")
+                {
+                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, DateTime.Parse(txtFechaFin.Text));
+                }
+                else if (txtFechaFin.Text == "" && txtFechaInicio.Text != "")
+                {
+                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), null);
+                }
+                else if(txtFechaFin.Text == "" && txtFechaInicio.Text == "")
+                {
+                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, null);
+                }
+                else
+                {
+                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFin.Text));
+                }
             }
 
             

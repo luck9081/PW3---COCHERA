@@ -79,40 +79,39 @@
         <img id="banner" class="col-lg-12" src="imagenes/cocheras/banna.gif" />
     </div>
 
-    <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Propietario</th>
-                <th>Precio hora</th>
-                <th>Precio total</th>
-                <th>Foto</th>
-                <th>Ubicación</th>
-                <th>Puntuación</th>
-                <th></th>
-            </tr>
-        </thead>
+    <div id="asd" runat="server" visible="false">
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th>Propietario</th>
+                    <th>Precio hora</th>
+                    <th>Precio total</th>
+                    <th>Foto</th>
+                    <th>Ubicación</th>
+                    <th>Puntuación</th>
+                    <th></th>
+                </tr>
+            </thead>
         
-        <tbody>
+            <tbody>
             
-            <asp:Repeater ID="Repeater1" runat="server">
-                <ItemTemplate>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>$ <%# Eval("Usuario_Que_Reservó") %></td>
-                      <td><%# Eval("precio_hora") %></td>
-                      <td>$ <%# Eval("precio_total") %></td>
-                      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-                      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-                      <td> <%# Eval("Puntuación") %> </td>
-                      <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-                    </tr>
-                </ItemTemplate>
-            </asp:Repeater>
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <tr>
+                            <td>$ <%# Eval("Usuario_Que_Reservó") %></td>
+                            <td><%# Eval("precio_hora") %></td>
+                            <td>$ <%# Eval("precio_total") %></td>
+                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+                            <td> <%# Eval("Puntuación") %> </td>
+                            <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink></td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
 
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
     
   
     <div class="modal fade" id="myModal" role="dialog">

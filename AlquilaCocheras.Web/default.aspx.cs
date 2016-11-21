@@ -16,7 +16,7 @@ namespace AlquilaCocheras.Web
 
             if (Session["tabla"] != null)
             {
-                TablaBusqueda.Visible = true;
+                asd.Visible = true;
                 bannerRow.Visible = false;
             }
 
