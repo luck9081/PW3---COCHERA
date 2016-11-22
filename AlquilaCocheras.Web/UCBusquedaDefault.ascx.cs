@@ -12,12 +12,28 @@ namespace AlquilaCocheras.Web
     public partial class UCBusquedaDefault : System.Web.UI.UserControl
     {
         // PROPERTY DEL USERCONTROL PARA LA LISTA DE cocheraDTO
-        public List<cocherasDTO> reservasUC = new List<cocherasDTO>();
+        /*private List<cocherasDTO> reservasUC = new List<cocherasDTO>();
 
         public List<cocherasDTO> ReservasUC
         {
             get { return reservasUC; }
             set { reservasUC = value; }
+        }*/
+
+        public string Ubicacion
+        {
+            get { return txtUbicacion.Text; }
+            set { txtUbicacion.Text = value; }
+        }
+        public string FechaFin
+        {
+            get { return txtFechaFin.Text; }
+            set { txtFechaFin.Text = value; }
+        }
+        public string FechaInicio
+        {
+            get { return txtFechaInicio.Text; }
+            set { txtFechaInicio.Text = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,50 +54,48 @@ namespace AlquilaCocheras.Web
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                // Instancia del WebService
-                AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
+            // Instancia del WebService
+            //AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
 
-                // Si alguna de las dos fechas no ha sido completada, mando al webService un "null" como parámetro en su lugar
-                // y obtengo la lista de cocheraDTO, la cual se la asigno a la property "ReservasUC" del UCBusqueda
-                if (txtFechaInicio.Text == "" && txtFechaFin.Text != "")
-                {
-                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, DateTime.Parse(txtFechaFin.Text));
-                }
-                else if (txtFechaFin.Text == "" && txtFechaInicio.Text != "")
-                {
-                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), null);
-                }
-                else if(txtFechaFin.Text == "" && txtFechaInicio.Text == "")
-                {
-                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, null);
-                }
-                else
-                {
-                    ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFin.Text));
-                }
-            }
-
-            
-
-            string ubicacionIncorrecta = "San Justo";
-            string ubicacionCorrecta = "Haedo";
-            if (txtUbicacion.Text == ubicacionIncorrecta)
+            // Si alguna de las dos fechas no ha sido completada, mando al webService un "null" como parámetro en su lugar
+            // y obtengo la lista de cocheraDTO, la cual se la asigno a la property "ReservasUC" del UCBusqueda
+            /*if (txtFechaInicio.Text == "" && txtFechaFin.Text != "")
             {
-                lblResultado.Text = "No se encontraron resultados";
+                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, DateTime.Parse(txtFechaFin.Text));
             }
-            if (txtUbicacion.Text == ubicacionCorrecta)
+            else if (txtFechaFin.Text == "" && txtFechaInicio.Text != "")
             {
-                Session["tabla"] = true;
-                string url = HttpContext.Current.Request.Url.AbsolutePath;
-                Server.Transfer(url,false);
-                if (url == "/clientes/reservar.aspx")
-                {
-                    ShowPopUpMsg("Se encontraron resultados");
-                }
-             
+                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), null);
             }
+            else if(txtFechaFin.Text == "" && txtFechaInicio.Text == "")
+            {
+                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, null);
+            }
+            else
+            {
+                ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, DateTime.Parse(txtFechaInicio.Text), DateTime.Parse(txtFechaFin.Text));
+            }*/
+           // ReservasUC = servicioCocheras.obtenerCocheras(txtUbicacion.Text, null, null);
+
+
+
+            /*  string ubicacionIncorrecta = "San Justo";
+              string ubicacionCorrecta = "Haedo";
+              if (txtUbicacion.Text == ubicacionIncorrecta)
+              {
+                  lblResultado.Text = "No se encontraron resultados";
+              }
+              if (txtUbicacion.Text == ubicacionCorrecta)
+              {
+                  Session["tabla"] = true;
+                  string url = HttpContext.Current.Request.Url.AbsolutePath;
+                  Server.Transfer(url,false);
+                  if (url == "/clientes/reservar.aspx")
+                  {
+                      ShowPopUpMsg("Se encontraron resultados");
+                  }
+
+              }*/
         }
 
         private void ShowPopUpMsg(string msg)

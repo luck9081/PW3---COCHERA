@@ -13,7 +13,6 @@ namespace AlquilaCocheras.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["tabla"] != null)
             {
                 asd.Visible = true;
@@ -22,8 +21,14 @@ namespace AlquilaCocheras.Web
 
             if (IsPostBack)
             {
-                Repeater1.DataSource = UCBusquedaDefault.ReservasUC;
+                asd.Visible = true;
+                bannerRow.Visible = false;
+
+                AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
+
+                Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion, null, null);
                 Repeater1.DataBind();
+
             }
         }
     }

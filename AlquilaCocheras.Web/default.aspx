@@ -98,11 +98,11 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td>$ <%# Eval("Usuario_Que_Reservó") %></td>
+                            <td><%# Eval("Usuario_Que_Creó") %></td>
                             <td><%# Eval("precio_hora") %></td>
                             <td>$ <%# Eval("precio_total") %></td>
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
+                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
                             <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink></td>
                         </tr>
@@ -138,7 +138,7 @@
         <div class="modal-dialog">
     
             <!-- Modal content-->
-            <div class="modal-content">
+            <div id="myModal7" class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Ubicacion de la cochera</h4>
@@ -146,17 +146,19 @@
     
                 <div class="modal-body">
 
-                    <div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"></div>
+                    <div id="mapa" class="" style="width:369px; height:350px"/>
+                    
+                    <!--div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"/-->
 
                     <script type="text/javascript">
-                        (function (d, t) {
+                        /*(function (d, t) {
                             var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
                             g.src = "http://map-generator.net/es/maps/298712.js?point=Mariano+J.+Haedo%2C+Argentina";
                             s.parentNode.insertBefore(g, s);
-                        }(document, "script"));
+                        }(document, "script"));*/
                     </script>
 
-                    <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a>
+                    <!--a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 369px;" href="http://map-generator.net/es">map-generator.net</a-->
 
                 </div>
 
