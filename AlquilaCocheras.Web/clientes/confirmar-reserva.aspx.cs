@@ -16,16 +16,15 @@ namespace AlquilaCocheras.Web.clientes
         {
             TP_20162CEntities ctx = new TP_20162CEntities();
             imgFoto.ImageUrl = "http://azapedia.net/azpd/wp-content/uploads/2016/06/0d40a5e4a645fc6b96e767d64ac0878e-5.png";
+
             if (!IsPostBack)
             {
-
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                List<Cocheras> cocheraLista = new List<Cocheras>();
-                cocheraLista.Add(ctx.Cocheras.Where(c => c.IdCochera == id).FirstOrDefault());
+                Cocheras cochera = ctx.Cocheras.Where(c => c.IdCochera == id).FirstOrDefault();
 
-                Repeater1.DataSource = cocheraLista;
-                Repeater1.DataBind();
+                lblUbicacion.Text = cochera.Ubicacion;
+                precioHora.Value = cochera.Precio.ToString();
             }
         }
 
