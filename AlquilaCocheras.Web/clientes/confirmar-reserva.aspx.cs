@@ -47,7 +47,7 @@ namespace AlquilaCocheras.Web.clientes
                 reserva.FechaCarga = DateTime.Now;
                 reserva.HoraFin = txtHorarioFin.Text;
                 reserva.HoraInicio = txtHorarioInicio.Text;
-                reserva.Precio = 10000;
+                reserva.Precio = Int32.Parse(lblPrecioTotal.Text);
                 res.agregarReservas(reserva);
                
                 Response.Redirect("reservar.aspx");

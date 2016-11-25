@@ -13,85 +13,22 @@ namespace AlquilaCocheras.Web.clientes {
     public partial class reservas {
         
         /// <summary>
-        /// Control colorRow1.
+        /// Control repeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow colorRow1;
+        protected global::System.Web.UI.WebControls.Repeater repeater;
         
         /// <summary>
-        /// Control tdBoton.
+        /// Control hdIdPuntuacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdBoton;
-        
-        /// <summary>
-        /// Control tdPuntuacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdPuntuacion;
-        
-        /// <summary>
-        /// Control puntaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label puntaje;
-        
-        /// <summary>
-        /// Control colorRow.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow colorRow;
-        
-        /// <summary>
-        /// Control tdBoton2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdBoton2;
-        
-        /// <summary>
-        /// Control tdPuntuacion2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdPuntuacion2;
-        
-        /// <summary>
-        /// Control puntaje2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label puntaje2;
-        
-        /// <summary>
-        /// Control puntaje3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label puntaje3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdIdPuntuacion;
         
         /// <summary>
         /// Control ddlPuntuacion.
@@ -110,24 +47,6 @@ namespace AlquilaCocheras.Web.clientes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button enviarPuntuacion;
-        
-        /// <summary>
-        /// Control ddlPuntuacion1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPuntuacion1;
-        
-        /// <summary>
-        /// Control enviarPuntuacion2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enviarPuntuacion2;
         
         /// <summary>
         /// Control btnConfirmar.
