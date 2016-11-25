@@ -42,7 +42,7 @@
 
 
 
- <table class="table table-hover table-inverse" id="TablaReservar" visible="true" runat="server">
+ <table class="table table-hover table-inverse" id="TablaReservar" visible="true" >
   <thead>
     <tr>
       <th>#</th>
@@ -58,7 +58,7 @@
       <th scope="row">1</th>
       <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" Text='<%#Eval("Ubicacion") %>' runat="server"></asp:Label></td>
       <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name=price value='<%#Eval("Precio") %>' disabled="disabled" /></td>
-      <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label><span class=total></span></td>           
+      <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label><span class=total></span></td>
       </tr>
      </ItemTemplate>
       </asp:Repeater>

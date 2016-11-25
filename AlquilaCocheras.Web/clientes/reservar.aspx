@@ -42,7 +42,7 @@
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
                             <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
-                            <td><a ID="HyperLink1"  href="/clientes/confirmar-reserva.aspx?id=<%#Eval("numero")%>">Reservar</a></td>
+                            <td><a href="<%# String.Format("/clientes/confirmar-reserva.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>

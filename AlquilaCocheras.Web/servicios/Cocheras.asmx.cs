@@ -25,7 +25,7 @@ namespace AlquilaCocheras.Web.servicios
         }
 
         [WebMethod]
-        public Object obtenerCocherasCliente(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
+        public Object obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
             TP_20162CEntities ctx = new TP_20162CEntities();
 
@@ -50,32 +50,6 @@ namespace AlquilaCocheras.Web.servicios
                         Cantidad_Horas = r.CantidadHoras,
                         Total_Cobrado = r.CantidadHoras * r.Precio,
                         Puntuación = r.Puntuacion
-
-                    }).ToList();
-
-
-            return listado;
-        }
-
-        [WebMethod]
-        public Object obtenerCocherasAnonimo(string ubicacion, DateTime? fechaInicio, DateTime? fechaFin)
-        {
-            TP_20162CEntities ctx = new TP_20162CEntities();
-
-            var listado = (
-                    from c in ctx.Cocheras
-                    join u in ctx.Usuarios on c.IdPropietario equals u.IdUsuario
-                    where c.Ubicacion.Contains(ubicacion) //&& (r.FechaFin <= fechaFin || r.FechaInicio >= fechaInicio)
-
-                    select new
-                    {
-                        idCochera = c.IdCochera,
-                        precio_hora = c.Precio,
-                        Ubicación = c.Ubicacion,
-                        lat = c.Latitud,
-                        lon = c.Longitud,
-                        imagen = c.Imagen,
-                        Usuario_Que_Creó = string.Concat(u.Nombre, " ", u.Apellido)
 
                     }).ToList();
 

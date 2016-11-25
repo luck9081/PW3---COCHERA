@@ -103,7 +103,7 @@
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-img="<%# Eval("imagen") %>">Ver foto</button></td>
                             <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-lat="<%# Eval("lat") %>" data-lon="<%# Eval("lon") %>">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
-                            <td><a href="<%# String.Format("/clientes/reservar.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
+                            <td><a href="<%# String.Format("/clientes/confirmar-reserva.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>

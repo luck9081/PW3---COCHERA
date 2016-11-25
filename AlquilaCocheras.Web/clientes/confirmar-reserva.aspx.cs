@@ -19,9 +19,11 @@ namespace AlquilaCocheras.Web.clientes
             {
 
                 int id = Int32.Parse(Request.QueryString["id"]);
-                Cocheras coche = new Cocheras();
-                coche = ctx.Cocheras.Where(c => c.IdCochera == id).FirstOrDefault();
-                Repeater1.DataSource = coche;
+
+                List<Cocheras> cocheraLista = new List<Cocheras>();
+                cocheraLista.Add(ctx.Cocheras.Where(c => c.IdCochera == id).FirstOrDefault());
+
+                Repeater1.DataSource = cocheraLista;
                 Repeater1.DataBind();
             }
         }

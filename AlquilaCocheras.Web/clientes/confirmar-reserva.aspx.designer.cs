@@ -157,24 +157,6 @@ namespace AlquilaCocheras.Web.clientes {
         protected global::System.Web.UI.WebControls.Image imgFoto;
         
         /// <summary>
-        /// Control asd.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl asd;
-        
-        /// <summary>
-        /// Control TablaReservar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TablaReservar;
-        
-        /// <summary>
         /// Control Repeater1.
         /// </summary>
         /// <remarks>

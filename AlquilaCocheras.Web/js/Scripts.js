@@ -77,7 +77,7 @@
 
             var diffHoras = horaFin - horaInicio;
 
-            document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (document.getElementById("precioHora").value);
+            document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (parseFloat(document.getElementById("precioHora").value));
             
         });
 
