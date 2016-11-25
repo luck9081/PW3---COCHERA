@@ -35,11 +35,11 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td><%# Eval("Usuario_Que_Creó") %></td>
-                            <td><%# Eval("precio_hora") %></td>
+                            <td><%# Eval("NombrePropietario") %></td>
+                            <td>$ <%# Eval("PrecioHora") %></td>
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
-                            <td> <%# Eval("Puntuación") %> </td>
+                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("Latitud") %>', 'longitud': '<%# Eval("Longitud") %>'}">Ver Mapa</button></td>
+                            <td><%# Eval("Puntuacion") %></td>
                             <td><a href="<%# String.Format("/clientes/confirmar-reserva.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
                         </tr>
                     </ItemTemplate>

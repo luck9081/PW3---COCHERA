@@ -9,25 +9,15 @@ namespace Clase_Usuario
 {
    public class cocherasDTO
     {
-        private int Numero;
-        private decimal PrecioHora;
-        private decimal PrecioTotal;
-        private string NombrePropietario;
-        private string Imagen;
-        private decimal Latitud;
-        private decimal Longitud;
-        private int Puntuacion;
+        public Boolean Disponible { get; set; }
+        public int idCochera { get; set; }
+        public decimal PrecioHora { get; set; }
+        public double Puntuacion { get; set; }
+        public string Ubicacion { get; set; }
+        public string NombrePropietario { get; set; }
+        public string Imagen { get; set; }
+        public decimal Latitud { get; set; }
+        public decimal Longitud { get; set; }
 
-        public cocherasDTO(int numero,decimal precioHora,decimal precioTotal,string nombrePropietario,string img,decimal lat,decimal lon,int puntuacion)
-        {
-            Numero = numero;
-            PrecioHora = precioHora;
-            PrecioTotal = precioTotal;
-            NombrePropietario = nombrePropietario;
-            Imagen = img;
-            Latitud = lat;
-            Longitud = lon;
-            Puntuacion = puntuacion;
-        }
     }
 }

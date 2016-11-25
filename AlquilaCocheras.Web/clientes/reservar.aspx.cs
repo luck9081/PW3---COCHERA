@@ -26,7 +26,26 @@ namespace AlquilaCocheras.Web.clientes
 
                 AlquilaCocheras.Web.servicios.Cocheras servicioCocheras = new AlquilaCocheras.Web.servicios.Cocheras();
 
-                Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion, null, null);
+                if((UCBusquedaDefault.FechaInicio == "" || UCBusquedaDefault.FechaInicio == null) && (UCBusquedaDefault.FechaFin != "" && UCBusquedaDefault.FechaFin != null))
+                {
+                    Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion,null,DateTime.Parse(UCBusquedaDefault.FechaFin));
+                }
+
+                else if ((UCBusquedaDefault.FechaFin == "" || UCBusquedaDefault.FechaFin == null) && (UCBusquedaDefault.FechaInicio != "" && UCBusquedaDefault.FechaInicio != null))
+                {
+                    Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion, DateTime.Parse(UCBusquedaDefault.FechaInicio), null);
+                }
+
+                else if ((UCBusquedaDefault.FechaFin == "" || UCBusquedaDefault.FechaFin == null) && (UCBusquedaDefault.FechaInicio == "" || UCBusquedaDefault.FechaInicio == null))
+                {
+                    Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion,null,null);
+                }
+
+                else
+                {
+                    Repeater1.DataSource = servicioCocheras.obtenerCocheras(UCBusquedaDefault.Ubicacion, DateTime.Parse(UCBusquedaDefault.FechaInicio), DateTime.Parse(UCBusquedaDefault.FechaFin));
+                }
+
                 Repeater1.DataBind();
             }
         }
