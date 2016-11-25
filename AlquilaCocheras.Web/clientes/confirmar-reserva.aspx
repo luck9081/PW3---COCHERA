@@ -42,29 +42,24 @@
 
 
 
- <table class="table table-hover table-inverse" id="TablaReservar" visible="true" >
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Ubicacion</th>
-      <th>Precio por hora</th>
-      <th>Precio total</th>
-    </tr>
-  </thead>
-  <tbody>
-   <asp:Repeater ID="Repeater1" runat="server">
-    <ItemTemplate>
-      <tr>
-      <th scope="row">1</th>
-      <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" Text='<%#Eval("Ubicacion") %>' runat="server"></asp:Label></td>
-      <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name=price value='<%#Eval("Precio") %>' disabled="disabled" /></td>
-      <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label><span class=total></span></td>
-      </tr>
-     </ItemTemplate>
-      </asp:Repeater>
-    </tbody>
-</table>
- 
+    <table class="table table-hover table-inverse" id="TablaReservar" visible="true" >
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ubicacion</th>
+                <th>Precio por hora</th>
+                <th>Precio total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" runat="server"></asp:Label></td>
+                <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name="price" disabled="disabled" runat="server" ClientIDMode="Static"/></td>
+                <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label></td>
+            </tr>
+        </tbody>
+    </table> 
    
    </div>     
 
@@ -80,6 +75,30 @@
      <asp:Label ID="lblResultado" runat="server"></asp:Label>   
     
 
-    
+    <script>
+        $(document).ready(function () {
+            $(".calculadora").change(function () {
+            
+                var date1 = new Date(document.getElementById("txtFechaInicio").value);
+                var date2 = new Date(document.getElementById("txtFechaFin").value);
+
+                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+
+                var diffDays = Math.ceil(timeDiff / (1000 * 3600));
+            
+
+                var horaInicio = document.getElementById("txtHorarioInicio").value;
+                var horaFin = document.getElementById("txtHorarioFin").value;
+
+                horaInicio = parseInt(horaInicio.substr(0, 2));
+                horaFin = parseInt(horaFin.substr(0, 2));
+
+                var diffHoras = horaFin - horaInicio;
+
+                document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (parseFloat(document.getElementById("<%= precioHora.ClientID %>").value));
+            
+            });
+        });
+    </script>
     
 </asp:Content>

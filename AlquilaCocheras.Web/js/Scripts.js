@@ -59,27 +59,7 @@
 
         // CALCULADORA DE "confirmar-reserva.aspx"
 
-        $(".calculadora").change(function () {
-            
-            var date1 = new Date(document.getElementById("txtFechaInicio").value);
-            var date2 = new Date(document.getElementById("txtFechaFin").value);
-
-            var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-
-            var diffDays = Math.ceil(timeDiff / (1000 * 3600));
-            
-
-            var horaInicio = document.getElementById("txtHorarioInicio").value;
-            var horaFin = document.getElementById("txtHorarioFin").value;
-
-            horaInicio = parseInt(horaInicio.substr(0, 2));
-            horaFin = parseInt(horaFin.substr(0, 2));
-
-            var diffHoras = horaFin - horaInicio;
-
-            document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (parseFloat(document.getElementById("precioHora").value));
-            
-        });
+        
 
         // Activate Carousel
         $("#myCarousel").carousel();

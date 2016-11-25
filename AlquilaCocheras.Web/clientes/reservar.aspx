@@ -23,7 +23,6 @@
                 <tr>
                     <th>Propietario</th>
                     <th>Precio hora</th>
-                    <th>Precio total</th>
                     <th>Foto</th>
                     <th>Ubicación</th>
                     <th>Puntuación</th>
@@ -38,7 +37,6 @@
                         <tr>
                             <td><%# Eval("Usuario_Que_Creó") %></td>
                             <td><%# Eval("precio_hora") %></td>
-                            <td>$ <%# Eval("precio_total") %></td>
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
                             <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
