@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Clases_Roles;
 using Acceso_BaseDatos;
+using Clase_Usuario;
 namespace AlquilaCocheras.Web.clientes
 {
     public partial class confirmar_reserva : System.Web.UI.Page
@@ -32,7 +33,26 @@ namespace AlquilaCocheras.Web.clientes
         {
             if (Page.IsValid)
             {
-                ShowPopUpMsg("Operacion Exitosa!");
+                int id = Int32.Parse(Request.QueryString["id"]);
+                TP_20162CEntities ctx = new TP_20162CEntities();
+                Cocheras coche = ctx.Cocheras.Where(i => i.IdCochera == id).FirstOrDefault();
+                Usuario usuario = new Usuario(ctx);
+                Usuarios usu = usuario.obtenerUsuario((string)Session["Usuario"]);
+                Reserva res = new Reserva(ctx);
+                Reservas reserva = new Reservas();
+                reserva.IdCochera = coche.IdCochera;
+                reserva.IdCliente = usu.IdUsuario;
+                reserva.CantidadHoras = coche.Precio;
+                reserva.FechaInicio = DateTime.Parse(txtFechaInicio.Text);
+                reserva.FechaFin = DateTime.Parse(txtFechaFin.Text);
+                reserva.FechaCarga = DateTime.Now;
+                reserva.HoraFin = txtHorarioFin.Text;
+                reserva.HoraInicio = txtHorarioInicio.Text;
+                reserva.Precio = 10000;
+                res.agregarReservas(reserva);
+               
+                Response.Redirect("reservar.aspx");
+
             }
         }
         private void ShowPopUpMsg(string msg)

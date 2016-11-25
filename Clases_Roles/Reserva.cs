@@ -13,7 +13,7 @@ namespace Clase_Usuario
         private DateTime FechaInicio;
         private DateTime FechaFin;
         private string emailBusqueda;
-
+        TP_20162CEntities ctx = new TP_20162CEntities();
         public Reserva(string fechaInicio, string fechaFin, string email)
         {
             FechaInicio = DateTime.Parse(fechaInicio);
@@ -21,9 +21,19 @@ namespace Clase_Usuario
             emailBusqueda = email;
         }
 
+        public Reserva(TP_20162CEntities context)
+        {
+            ctx = context;
+        }
+        public void agregarReservas(Reservas reserva)
+        {
+            ctx.Reservas.Add(reserva);
+            ctx.SaveChanges();
+        }
+
         public dynamic listaReservas()
         {
-            TP_20162CEntities ctx = new TP_20162CEntities();
+           
 
             var lista = (
                     from r in ctx.Reservas
