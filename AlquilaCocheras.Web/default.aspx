@@ -95,7 +95,7 @@
         
             <tbody>
             
-                <asp:Repeater ID="Repeater1" runat="server">
+                <asp:Repeater EnableViewState="false" ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td><%# Eval("Usuario_Que_Creó") %></td>
@@ -104,12 +104,13 @@
                             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
                             <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
-                            <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink></td>
+                            <td><asp:HiddenField ID="Ocultos" runat="server" Value='<%# Eval("numero")%>' /><asp:LinkButton ID="link" runat="server" PostBackUrl='/clientes/reservar.aspx' ClientIDMode="Static" OnClick="link_Click">Reservar</asp:LinkButton></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
-
+                
             </tbody>
+            
         </table>
     </div>
     
@@ -169,6 +170,6 @@
 
         </div>
     </div>
-   
+    
 </asp:Content>
 

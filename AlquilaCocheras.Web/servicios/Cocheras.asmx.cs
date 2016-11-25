@@ -35,7 +35,7 @@ namespace AlquilaCocheras.Web.servicios
                     from r in ctx.Reservas
                     join c in ctx.Cocheras on r.IdCochera equals c.IdCochera
                     join u in ctx.Usuarios on c.IdPropietario equals u.IdUsuario
-                    where c.Ubicacion == ubicacion //&& (r.FechaFin <= fechaFin || r.FechaInicio >= fechaInicio)
+                    where c.Ubicacion.Contains(ubicacion) //&& (r.FechaFin <= fechaFin || r.FechaInicio >= fechaInicio)
 
                     select new
                     {

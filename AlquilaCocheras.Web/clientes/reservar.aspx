@@ -17,52 +17,39 @@
         <img id="banner2" class="col-lg-12 banner2" src="../imagenes/cocheras/Reservar.jpg" />
     </div>
 
-    <table class="table table-hover table-inverse" id="TablaBusqueda" visible="false" runat="server">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Precio hora</th>
-      <th>Propietario</th>
-      
-      <th>Foto</th>
-      <th>Ubicación</th>
-      <th>Puntuación</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>$150</td>
-      <td>Gonzalo Gomez</td>
-      
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>3/5</td>
-      <td><asp:HyperLink ID="HyperLink1" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>$99</td>
-      <td>Lucas Mattiauda</td>
-      
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>3/5</td>
-      <td><asp:HyperLink ID="HyperLink2" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>$80</td>
-      <td>Quiñonez Lucio</td>
-      
-      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Ver Mapa</button></td>
-      <td>3/5</td>
-      <td><asp:HyperLink ID="HyperLink3" runat="server" ClientIDMode="Static" NavigateUrl="/clientes/confirmar-reserva.aspx?idcochera=123">Reservar</asp:HyperLink>  </td>
-    </tr>
-  </tbody>
-</table>
+    <div id="asd" runat="server" visible="false">
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th>Propietario</th>
+                    <th>Precio hora</th>
+                    <th>Precio total</th>
+                    <th>Foto</th>
+                    <th>Ubicación</th>
+                    <th>Puntuación</th>
+                    <th></th>
+                </tr>
+            </thead>
+        
+            <tbody>
+            
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <tr>
+                            <td><%# Eval("Usuario_Que_Creó") %></td>
+                            <td><%# Eval("precio_hora") %></td>
+                            <td>$ <%# Eval("precio_total") %></td>
+                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
+                            <td> <%# Eval("Puntuación") %> </td>
+                            <td><a ID="HyperLink1"  href="/clientes/confirmar-reserva.aspx?id=<%#Eval("numero")%>">Reservar</a></td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+            </tbody>
+        </table>
+    </div>
   
      <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

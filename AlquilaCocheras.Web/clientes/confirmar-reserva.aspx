@@ -41,8 +41,8 @@
       <asp:Image ID="imgFoto" ClientIDMode="Static" runat="server" />
 
 
-<div class="col-lg-8">
- <table class="table table-hover table-inverse" id="TablaConfirma" visible="true" runat="server">
+
+ <table class="table table-hover table-inverse" id="TablaReservar" visible="true" runat="server">
   <thead>
     <tr>
       <th>#</th>
@@ -52,15 +52,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+   <asp:Repeater ID="Repeater1" runat="server">
+    <ItemTemplate>
+      <tr>
       <th scope="row">1</th>
-      <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" Text="Haedo" runat="server"></asp:Label></td>
-      <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name=price value="150" disabled="disabled" /></td>
+      <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" Text='<%#Eval("Ubicacion") %>' runat="server"></asp:Label></td>
+      <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name=price value='<%#Eval("Precio") %>' disabled="disabled" /></td>
       <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label><span class=total></span></td>           
       </tr>
+     </ItemTemplate>
+      </asp:Repeater>
     </tbody>
 </table>
- </div>   
+ 
    
    </div>     
 

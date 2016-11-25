@@ -157,40 +157,31 @@ namespace AlquilaCocheras.Web.clientes {
         protected global::System.Web.UI.WebControls.Image imgFoto;
         
         /// <summary>
-        /// Control TablaConfirma.
+        /// Control asd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TablaConfirma;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl asd;
         
         /// <summary>
-        /// Control lblUbicacion.
+        /// Control TablaReservar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUbicacion;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TablaReservar;
         
         /// <summary>
-        /// Control lblPrecioHora.
+        /// Control Repeater1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecioHora;
-        
-        /// <summary>
-        /// Control lblPrecioTotal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecioTotal;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
         /// <summary>
         /// Control btnConfirmar.
