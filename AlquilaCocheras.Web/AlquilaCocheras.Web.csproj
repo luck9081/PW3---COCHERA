@@ -96,6 +96,7 @@
     <Content Include="imagenes\propietario\car.png" />
     <Content Include="imagenes\propietario\perfil.jpg" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\maps2.js" />
     <Content Include="js\maps.js" />
     <Content Include="js\mapsDefault.js" />
     <Content Include="js\material.min.js" />
