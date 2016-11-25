@@ -17,6 +17,12 @@ namespace AlquilaCocheras.Web.MasterPages
                 if (Session["usuario"] == null)
                 {
                     string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
+
+
+                    url = String.Concat(url, "&id=");
+                    url = String.Concat(url, Request.QueryString["id"]);
+
+
                     Response.Redirect(url);
                 }
             }

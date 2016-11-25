@@ -25,11 +25,9 @@ namespace AlquilaCocheras.Web.servicios
         }
 
         [WebMethod]
-        public Object obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
+        public Object obtenerCocherasCliente(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
             TP_20162CEntities ctx = new TP_20162CEntities();
-
-            //List<cocherasDTO> lista = new List<cocherasDTO>();
 
             var listado = (
                     from r in ctx.Reservas
@@ -39,7 +37,7 @@ namespace AlquilaCocheras.Web.servicios
 
                     select new
                     {
-                        numero = c.IdCochera,
+                        idCochera = c.IdCochera,
                         precio_hora = c.Precio,
                         precio_total =r.Precio,
                         Ubicación = c.Ubicacion,
@@ -56,10 +54,32 @@ namespace AlquilaCocheras.Web.servicios
                     }).ToList();
 
 
-           /* foreach (var item in listado)
-            {               
-                lista.Add(new cocherasDTO(item.numero, item.precio_hora, item.precio_total, item.Usuario_Que_Creó, item.imagen, item.lat, item.lon, item.Puntuación));
-            }*/
+            return listado;
+        }
+
+        [WebMethod]
+        public Object obtenerCocherasAnonimo(string ubicacion, DateTime? fechaInicio, DateTime? fechaFin)
+        {
+            TP_20162CEntities ctx = new TP_20162CEntities();
+
+            var listado = (
+                    from c in ctx.Cocheras
+                    join u in ctx.Usuarios on c.IdPropietario equals u.IdUsuario
+                    where c.Ubicacion.Contains(ubicacion) //&& (r.FechaFin <= fechaFin || r.FechaInicio >= fechaInicio)
+
+                    select new
+                    {
+                        idCochera = c.IdCochera,
+                        precio_hora = c.Precio,
+                        Ubicación = c.Ubicacion,
+                        lat = c.Latitud,
+                        lon = c.Longitud,
+                        imagen = c.Imagen,
+                        Usuario_Que_Creó = string.Concat(u.Nombre, " ", u.Apellido)
+
+                    }).ToList();
+
+
             return listado;
         }
     }

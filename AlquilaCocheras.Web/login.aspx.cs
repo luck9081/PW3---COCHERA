@@ -39,8 +39,14 @@ namespace AlquilaCocheras.Web
                     else if (Request.QueryString["url"] == null && user.Perfil == 2) // Si el usuario ingresa al login sin ser redirigido y TIPO 2 ES PROPIETARIO
                         Response.Redirect("/propietarios/reservas.aspx?pestaña=propReservas", false);
 
-                    else if (Request.QueryString["url"] != null)    // Si el usuario fue redirigido al login, y luego necesita ser redirigido al destino original
-                        Response.Redirect(Request.QueryString["url"], false);
+                    else if (Request.QueryString["url"] != null) // Si el usuario fue redirigido al login, y luego necesita ser redirigido al destino original
+                    {
+                        string url = String.Concat(Request.QueryString["url"], "?id=");
+
+                        url = String.Concat(url, Request.QueryString["id"]);
+
+                        Response.Redirect(url, false);
+                    }
                 }
                 else
                 {

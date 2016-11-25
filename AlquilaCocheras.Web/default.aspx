@@ -2,7 +2,8 @@
 <%@ Register Src="~/UCBusquedaDefault.ascx" TagPrefix="uc2" TagName="Busqueda" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByG25PdBB9LYQkjVm3MGcJKMem-CzZPPc&libraries=places"></script>
+    <script type="text/javascript" src="/js/maps2.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_Principal" runat="server">
@@ -85,7 +86,6 @@
                 <tr>
                     <th>Propietario</th>
                     <th>Precio hora</th>
-                    <th>Precio total</th>
                     <th>Foto</th>
                     <th>Ubicación</th>
                     <th>Puntuación</th>
@@ -100,11 +100,10 @@
                         <tr>
                             <td><%# Eval("Usuario_Que_Creó") %></td>
                             <td><%# Eval("precio_hora") %></td>
-                            <td>$ <%# Eval("precio_total") %></td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
-                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("lat") %>', 'longitud': '<%# Eval("lon") %>'}">Ver Mapa</button></td>
+                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-img="<%# Eval("imagen") %>">Ver foto</button></td>
+                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-lat="<%# Eval("lat") %>" data-lon="<%# Eval("lon") %>">Ver Mapa</button></td>
                             <td> <%# Eval("Puntuación") %> </td>
-                            <td><asp:HiddenField ID="Ocultos" runat="server" Value='<%# Eval("numero")%>' /><asp:LinkButton ID="link" runat="server" PostBackUrl='/clientes/reservar.aspx' ClientIDMode="Static" OnClick="link_Click">Reservar</asp:LinkButton></td>
+                            <td><a href="<%# String.Format("/clientes/reservar.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -125,7 +124,7 @@
                     <h4 class="modal-title">Imagen de la cochera</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
+                    <img id="imagenModal" src="" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -147,7 +146,7 @@
     
                 <div class="modal-body">
 
-                    <div id="mapa" class="" style="width:369px; height:350px"/>
+                    <div id="mapa" class="" style="width:369px; height:350px; margin-bottom:20px;"></div>
                     
                     <!--div id="map_canvas_custom_298712" class="" style="width:369px; height:350px"/-->
 
