@@ -55,10 +55,8 @@ namespace Clase_Usuario
             Imagen = imagen;
             FechaInicio = DateTime.Parse(fechaInicio);
             FechaFin = Convert.ToDateTime(fechaFin);
-            //Latitud = Decimal.Parse(lat);
-            //Longitud = Decimal.Parse(lon);
-            Latitud = 0;
-            Longitud = 0;
+            Latitud = Decimal.Parse(lat);
+            Longitud = Decimal.Parse(lon);
             Precio = Decimal.Parse(precio);
             Area = Int32.Parse(area);
             Vehiculo = Int16.Parse(vehiculo);
@@ -93,7 +91,6 @@ namespace Clase_Usuario
 
                 usuarioBD = us.obtenerUsuario(emailBusqueda);
 
-                cocheraBD.IdPropietario = usuarioBD.IdUsuario;
                 cocheraBD.Ubicacion = Ubicacion;
                 cocheraBD.FechaInicio = FechaInicio;
                 cocheraBD.FechaFin = FechaFin;
@@ -107,7 +104,7 @@ namespace Clase_Usuario
                 cocheraBD.MetrosCuadrados = Area;
                 cocheraBD.TipoVehiculo = Vehiculo;
 
-                usuarioBD.Cocheras.Add(cocheraBD);
+                cocheraBD.Usuarios = usuarioBD;
 
                 context.Cocheras.Add(cocheraBD);
 

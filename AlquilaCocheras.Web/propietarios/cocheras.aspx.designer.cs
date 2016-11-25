@@ -319,6 +319,15 @@ namespace AlquilaCocheras.Web.propietarios {
         protected global::System.Web.UI.WebControls.FileUpload fuFoto;
         
         /// <summary>
+        /// Control label26.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label26;
+        
+        /// <summary>
         /// Control RequiredFieldValidator9.
         /// </summary>
         /// <remarks>
