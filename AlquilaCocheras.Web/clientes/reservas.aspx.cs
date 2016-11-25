@@ -25,21 +25,22 @@ namespace AlquilaCocheras.Web.clientes
                 repeater.DataBind();
             }
         }
-        protected void repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            HiddenField oculto = e.Item.FindControl("hdIdReserva") as HiddenField;
-            hdIdPuntuacion.Value = oculto.Value;
-        }
 
         protected void enviarPuntacion_Click(object sender, EventArgs e)
         {
          
             string puntuacion = ddlPuntuacion.SelectedValue;
+
+            int id = Int32.Parse(hdIdPuntuacion.Value);
+
             Reservas reserva = (from i in ctx.Reservas
-                                where i.IdReserva == Int32.Parse(hdIdPuntuacion.Value)
+                                where i.IdReserva == id
                                 select i).FirstOrDefault();
             reserva.Puntuacion = Int16.Parse(puntuacion);
+
             ctx.SaveChanges();
+
+            Response.Redirect("/clientes/reservas.aspx");
 
         }
        
