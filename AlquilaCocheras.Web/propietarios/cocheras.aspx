@@ -124,7 +124,7 @@
 
                         <div class="form-group md-form">
                             <asp:Label ID="label8" CssClass="fuente-mediana" for="lbTipoVehiculo" runat="server" Text="Tipo Vehículo: "></asp:Label>
-                            <asp:ListBox ID="lbTipoVehiculo" CssClass="form-control" runat="server" ClientIDMode="Static" SelectionMode="Multiple" Rows="2">
+                            <asp:ListBox ID="lbTipoVehiculo" CssClass="form-control" runat="server" ClientIDMode="Static" SelectionMode="Single" Rows="2">
                                 <asp:ListItem Value="0">Auto</asp:ListItem>
                                 <asp:ListItem Value="1">Pickup</asp:ListItem>
                                 <asp:ListItem Value="2">Camion</asp:ListItem>
@@ -138,7 +138,11 @@
                         <div class="form-group">
                             <asp:Label ID="label10" CssClass="fuente-mediana" runat="server" Text="Foto: "></asp:Label>
                             <asp:FileUpload ID="fuFoto" CssClass="input-lg" runat="server" ClientIDMode="Static" />
+<<<<<<< HEAD
                             <asp:Label ID="label26" CssClass="fuente-mediana" runat="server" Text=""></asp:Label>
+=======
+                            <asp:Label ID="label26" CssClass="alert danger-color validator animated zoomIn" runat="server" ></asp:Label>
+>>>>>>> origin/master
                             <br />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="alert danger-color validator animated zoomIn" Text="Elija una foto para mostrar su cochera" runat="server" ControlToValidate="txtFechaFin" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
