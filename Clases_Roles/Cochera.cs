@@ -83,8 +83,7 @@ namespace Clase_Usuario
 
         public bool cargarCochera(string emailBusqueda) // Carga en base de datos la cochera
         {
-            if (!existeCochera())    // utilizamos el método existeCochera() para saber si existe la cochera de antemano
-            {
+            
                 TP_20162CEntities context = new TP_20162CEntities();
                 Cocheras cocheraBD = new Cocheras();
                 Usuarios usuarioBD = new Usuarios();
@@ -114,11 +113,8 @@ namespace Clase_Usuario
                 context.SaveChanges();
 
                 return true;    // Retornamos que se ha hecho el insert exitosamente, esto nos dará control para actuar en consecuencia en el aspx
-            }
-            else
-            {
-                return false;   // Retornamos false para poder controlar desde el frontend un mensaje de que no se ha ingresado la cochera
-            }
+            
+          
         }
     }
 }

@@ -12,9 +12,9 @@ namespace AlquilaCocheras.Web.propietarios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack)
+            if (IsPostBack)
             {
-                
+
             }
         }
 
@@ -22,31 +22,70 @@ namespace AlquilaCocheras.Web.propietarios
         {
             if (Page.IsValid && IsPostBack)
             {
-                Cochera cochera = new Cochera(
-                    1,
-                    txtUbicacion.Text,
-                    txtFechaInicio.Text,
-                    txtFechaFin.Text,
-                    txtHorarioInicio.Text,
-                    txtHorarioFin.Text,
-                    txtDescripcion.Text,
-                    fuFoto.PostedFile.FileName,
-                    txtLatitud.Text,
-                    txtLongitud.Text,
-                    txtPrecioHora.Text,
-                    txtMetrosCuadrados.Text,
-                    lbTipoVehiculo.SelectedValue
-                );
+                String nombreFoto;
 
-                if (cochera.cargarCochera((string)Session["usuario"]))
+                String path = Server.MapPath("~/imagenes/");
+
+                bool extensionOk = false;
+                bool cargaImg = false;
+
+                // VERIFICACION DE QUE SE HA CARGADO UN ARCHIVO
+                if (fuFoto.HasFile)
                 {
-                    divResultado.Visible = true;
-                }
-                else
-                {
-                    lblResultado.Text = "Ya existe una cochera en las mismas coordenadas y del mismo tipo de vehículo.";
-                    divResultado.Visible = true;
-                    txtUbicacion.Text = ""; // Si no limpiamos este input, latitud y longitud quedarán en blanco y el usuario podrá hacer postback sin ellos.
+                    // EXTENSIONES PERMITIDAS
+                    String fileExtension = System.IO.Path.GetExtension(fuFoto.FileName).ToLower();
+                    String[] allowedExtensions = { ".gif", ".png", ".jpg" };
+
+                    // VERIFICACION DE EXTENSIONES
+                    for (int i = 0; i < allowedExtensions.Length; i++)
+                    {
+                        if (allowedExtensions[i] == fileExtension)
+                        {
+                            extensionOk = true;
+                        }
+                    }
+
+                    if (extensionOk)
+                    {
+                        string FileName = Guid.NewGuid().ToString() + fileExtension;
+                        //imgEvento.PostedFile.SaveAs(path + imgEvento.FileName);
+                        fuFoto.PostedFile.SaveAs(path + FileName);
+                        nombreFoto = FileName;
+
+                        Cochera cochera = new Cochera(
+                            1,
+                            txtUbicacion.Text,
+                            txtFechaInicio.Text,
+                            txtFechaFin.Text,
+                            txtHorarioInicio.Text,
+                            txtHorarioFin.Text,
+                            txtDescripcion.Text,
+                            nombreFoto,
+                            txtLatitud.Text,
+                            txtLongitud.Text,
+                            txtPrecioHora.Text,
+                            txtMetrosCuadrados.Text,
+                            lbTipoVehiculo.SelectedValue
+                        );
+
+                        if (cochera.cargarCochera((string)Session["usuario"]))
+                        {
+                            divResultado.Visible = true;
+                        }
+                        else
+                        {
+                            lblResultado.Text = "Ya existe una cochera en las mismas coordenadas y del mismo tipo de vehículo.";
+                            divResultado.Visible = true;
+                            txtUbicacion.Text = ""; // Si no limpiamos este input, latitud y longitud quedarán en blanco y el usuario podrá hacer postback sin ellos.
+                        }
+
+
+                        cargaImg = true;
+                    }
+                    else
+                    {
+                        label26.Text = "Solo se admiten imágenes con extencion: JPG - PNG - GIF";
+                    }
                 }
             }
         }

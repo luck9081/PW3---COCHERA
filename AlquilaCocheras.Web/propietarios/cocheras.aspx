@@ -138,6 +138,7 @@
                         <div class="form-group">
                             <asp:Label ID="label10" CssClass="fuente-mediana" runat="server" Text="Foto: "></asp:Label>
                             <asp:FileUpload ID="fuFoto" CssClass="input-lg" runat="server" ClientIDMode="Static" />
+                            <asp:Label ID="label26" CssClass="fuente-mediana" runat="server" Text=""></asp:Label>
                             <br />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="alert danger-color validator animated zoomIn" Text="Elija una foto para mostrar su cochera" runat="server" ControlToValidate="txtFechaFin" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
