@@ -29,34 +29,72 @@ namespace AlquilaCocheras.Web.servicios
         [WebMethod]
         public List<cocherasDTO> obtenerCocheras(string ubicacion,DateTime? fechaInicio,DateTime? fechaFin)
         {
-            var cocherasDisponibles =
-                ctx.Reservas
-                .Where(r => r.Cocheras.Ubicacion == ubicacion || r.FechaInicio > fechaFin || r.FechaFin < fechaInicio)
-                .Select(
-                    r => new cocherasDTO
-                    {
-                        idCochera = r.Cocheras.IdCochera,
-                        PrecioHora = r.Cocheras.Precio,
-                        Ubicacion = r.Cocheras.Ubicacion,
-                        Latitud = r.Cocheras.Latitud,
-                        Longitud = r.Cocheras.Longitud,
-                        Imagen = r.Cocheras.Imagen,
-                        NombrePropietario = string.Concat(r.Cocheras.Usuarios.Nombre, " ", r.Cocheras.Usuarios.Apellido),
-                        Puntuacion =
-                             (
-                                from ra in ctx.Reservas
-                                where ra.IdCochera == r.Cocheras.IdCochera //&& ra.Puntuacion != 0
-                                select new
-                                {
-                                    puntuacion = ra.Puntuacion
-                                }
 
-                            ).Average(ra => ra.puntuacion)
-                    }
+            List<int> existenReservas =
+                (
+                    from ra in ctx.Reservas
+                    where ra.Cocheras.Ubicacion.Contains(ubicacion)
+                    select ra.Cocheras.IdCochera
 
-                ).Distinct().ToList();
+                ).ToList();
 
-            return cocherasDisponibles;
+
+
+
+
+            if (existenReservas == null || !existenReservas.Any())
+            {
+                var cocherasDisponibles =
+                    ctx.Cocheras
+                    .Where(c => c.Ubicacion.Contains(ubicacion) || c.FechaInicio > fechaFin || c.FechaFin < fechaInicio)
+                    .Select(
+                        c => new cocherasDTO
+                        {
+                            idCochera = c.IdCochera,
+                            PrecioHora = c.Precio,
+                            Ubicacion = c.Ubicacion,
+                            Latitud = c.Latitud,
+                            Longitud = c.Longitud,
+                            Imagen = c.Imagen,
+                            NombrePropietario = string.Concat(c.Usuarios.Nombre, " ", c.Usuarios.Apellido),
+                            Puntuacion = 0
+
+                        }
+
+                    ).Distinct().ToList();
+
+                return cocherasDisponibles;
+            }
+            else
+            {
+
+                var cocherasDisponibles =
+                    ctx.Cocheras
+                    .Where(c => c.Ubicacion.Contains(ubicacion) || c.FechaInicio > fechaFin || c.FechaFin < fechaInicio)
+                    .Select(
+                        c => new cocherasDTO
+                        {
+                            idCochera = c.IdCochera,
+                            PrecioHora = c.Precio,
+                            Ubicacion = c.Ubicacion,
+                            Latitud = c.Latitud,
+                            Longitud = c.Longitud,
+                            Imagen = c.Imagen,
+                            NombrePropietario = string.Concat(c.Usuarios.Nombre, " ", c.Usuarios.Apellido),
+                            Disponible = true,
+                            Puntuacion = (
+                                    from ra in ctx.Reservas
+                                    where ra.IdCochera == c.IdCochera //&& ra.Puntuacion != 0
+                                    select new { puntuacion = ra.Puntuacion }
+
+                                ).Average(ra => ra.puntuacion)
+
+                        }
+
+                    ).Distinct().ToList();
+
+                return cocherasDisponibles;
+            }
 
         }
 

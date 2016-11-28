@@ -37,7 +37,7 @@
                         <tr>
                             <td><%# Eval("NombrePropietario") %></td>
                             <td>$ <%# Eval("PrecioHora") %></td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver foto</button></td>
+                            <td><button type="button" name="btnImagen" class="btn btn-info btnImagen" data-toggle="modal" data-target="#myModal" data-img="<%# Eval("Imagen") %>">Ver foto</button></td>
                             <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-mapa="{'latitud': '<%# Eval("Latitud") %>', 'longitud': '<%# Eval("Longitud") %>'}">Ver Mapa</button></td>
                             <td><%# Eval("Puntuacion") %></td>
                             <td><a href="<%# String.Format("/clientes/confirmar-reserva.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
@@ -59,7 +59,7 @@
           <h4 class="modal-title">Imagen de la cochera</h4>
         </div>
         <div class="modal-body">
-          <img src="http://www.arqhys.com/arquitectura/fotos/arquitectura/Abridores-de-puertas-de-cochera.jpg" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236">
+          <img id="imagenModal" src="#" class="foto img-responsive img-rounded imagenModal" alt="Cochera" width="304" height="236"/>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

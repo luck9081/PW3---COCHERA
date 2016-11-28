@@ -41,7 +41,7 @@
           <td><%# Eval("HoraInicio") %>/<%# Eval("HoraFin") %></td>
           <td><%# Eval("Precio") %></td>
           <td>
-              <button id="btnPuntuar" <%# (Int16)Eval("Puntuacion") > 0 ? "class='btn btn-info puntaje hidden'" : "class='btn btn-info puntaje'" %> type="button" class="btn btn-info puntaje" data-toggle="modal" data-puntaje="<%# Eval("IdReserva") %>" data-target="#myModalPuntuacion">Puntuar</button>
+              <button id="btnPuntuar" <%# (Int16)Eval("Puntuacion") > 0 || (DateTime)Eval("FechaFin") > DateTime.Now ? "class='btn btn-info puntaje hidden'" : "class='btn btn-info puntaje'" %> type="button" class="btn btn-info puntaje" data-toggle="modal" data-puntaje="<%# Eval("IdReserva") %>" data-target="#myModalPuntuacion">Puntuar</button>
               <p <%# (Int16)Eval("Puntuacion") == 0 ? "class='hidden'" : "" %> > <%# Eval("Puntuacion") %></p>
           </td>
       </tr>

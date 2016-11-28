@@ -55,8 +55,10 @@ namespace Clase_Usuario
             Imagen = imagen;
             FechaInicio = DateTime.Parse(fechaInicio);
             FechaFin = Convert.ToDateTime(fechaFin);
-            Latitud = Decimal.Parse(lat);
-            Longitud = Decimal.Parse(lon);
+            //Latitud = Decimal.Parse(lat);
+            //Longitud = Decimal.Parse(lon);
+            Latitud = 0;
+            Longitud = 0;
             Precio = Decimal.Parse(precio);
             Area = Int32.Parse(area);
             Vehiculo = Int16.Parse(vehiculo);

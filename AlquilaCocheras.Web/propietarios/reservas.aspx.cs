@@ -38,9 +38,7 @@ namespace AlquilaCocheras.Web.propietarios
 
                 Reserva reserva = new Reserva(txtFechaInicio.Text, txtFechaFin.Text,(string)Session["usuario"]);
 
-                var lista = reserva.listaReservas();
-
-                Repeater1.DataSource = lista;
+                Repeater1.DataSource = reserva.listaReservas();
                 Repeater1.DataBind();
            }
         }

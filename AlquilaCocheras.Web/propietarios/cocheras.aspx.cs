@@ -27,7 +27,6 @@ namespace AlquilaCocheras.Web.propietarios
                 String path = Server.MapPath("~/imagenes/");
 
                 bool extensionOk = false;
-                bool cargaImg = false;
 
                 // VERIFICACION DE QUE SE HA CARGADO UN ARCHIVO
                 if (fuFoto.HasFile)
@@ -47,10 +46,11 @@ namespace AlquilaCocheras.Web.propietarios
 
                     if (extensionOk)
                     {
-                        string FileName = Guid.NewGuid().ToString() + fileExtension;
+                        //string FileName = Guid.NewGuid().ToString() + fileExtension;
                         //imgEvento.PostedFile.SaveAs(path + imgEvento.FileName);
-                        fuFoto.PostedFile.SaveAs(path + FileName);
-                        nombreFoto = FileName;
+
+                        fuFoto.PostedFile.SaveAs(path + fuFoto.FileName);
+                        nombreFoto = "/imagenes/" + fuFoto.FileName;
 
                         Cochera cochera = new Cochera(
                             1,
@@ -79,12 +79,11 @@ namespace AlquilaCocheras.Web.propietarios
                             txtUbicacion.Text = ""; // Si no limpiamos este input, latitud y longitud quedarán en blanco y el usuario podrá hacer postback sin ellos.
                         }
 
-
-                        cargaImg = true;
                     }
                     else
                     {
                         label26.Text = "Solo se admiten imágenes con extencion: JPG - PNG - GIF";
+                        label26.Visible = true;
                     }
                 }
             }

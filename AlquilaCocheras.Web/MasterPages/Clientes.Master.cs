@@ -12,19 +12,16 @@ namespace AlquilaCocheras.Web.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["usuario"] == null)
             {
-                if (Session["usuario"] == null)
-                {
-                    string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
+                string url = String.Concat("/login.aspx?url=", HttpContext.Current.Request.Url.AbsolutePath);
 
 
-                    url = String.Concat(url, "&id=");
-                    url = String.Concat(url, Request.QueryString["id"]);
+                url = String.Concat(url, "&id=");
+                url = String.Concat(url, Request.QueryString["id"]);
 
 
-                    Response.Redirect(url);
-                }
+                Response.Redirect(url);
             }
         }
     }

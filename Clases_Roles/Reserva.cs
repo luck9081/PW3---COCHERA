@@ -14,6 +14,7 @@ namespace Clase_Usuario
         private DateTime FechaFin;
         private string emailBusqueda;
         TP_20162CEntities ctx = new TP_20162CEntities();
+
         public Reserva(string fechaInicio, string fechaFin, string email)
         {
             FechaInicio = DateTime.Parse(fechaInicio);

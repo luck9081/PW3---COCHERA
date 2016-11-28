@@ -17,9 +17,9 @@ namespace AlquilaCocheras.Web.clientes
             if (!IsPostBack)
             {
                 Usuario usuario = new Usuario(ctx);
-                Usuarios usu = usuario.obtenerUsuario(Session["Usuario"].ToString());
+                Usuarios usu = usuario.obtenerUsuario(Session["usuario"].ToString());
                 List<Reservas> rese = (from i in ctx.Reservas
-                                       where i.IdCliente == usu.IdUsuario && i.FechaFin < DateTime.Now
+                                       where i.IdCliente == usu.IdUsuario
                                        select i).ToList();
                 repeater.DataSource = rese;
                 repeater.DataBind();
