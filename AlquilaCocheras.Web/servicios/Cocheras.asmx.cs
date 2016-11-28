@@ -31,7 +31,7 @@ namespace AlquilaCocheras.Web.servicios
         {
             var cocherasDisponibles =
                 ctx.Reservas
-                .Where(r => r.Cocheras.Ubicacion == ubicacion || r.FechaInicio > fechaFin || r.FechaFin < fechaInicio)
+                .Where(r => r.Cocheras.Ubicacion.Contains(ubicacion) || r.FechaInicio > fechaFin || r.FechaFin < fechaInicio)
                 .Select(
                     r => new cocherasDTO
                     {
@@ -54,7 +54,7 @@ namespace AlquilaCocheras.Web.servicios
                             ).Average(ra => ra.puntuacion)
                     }
 
-                ).Distinct().ToList();
+                ).ToList();
 
             return cocherasDisponibles;
 
