@@ -77,6 +77,7 @@
 
     <script>
         $(document).ready(function () {
+            // CALCULADORA DE "confirmar-reserva.aspx"
             $(".calculadora").change(function () {
             
                 var date1 = new Date(document.getElementById("txtFechaInicio").value);

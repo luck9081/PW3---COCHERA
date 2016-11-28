@@ -98,11 +98,11 @@
                 <asp:Repeater EnableViewState="false" ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td><%# Eval("Usuario_Que_Creó") %></td>
-                            <td><%# Eval("precio_hora") %></td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-img="<%# Eval("imagen") %>">Ver foto</button></td>
-                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-lat="<%# Eval("lat") %>" data-lon="<%# Eval("lon") %>">Ver Mapa</button></td>
-                            <td> <%# Eval("Puntuación") %> </td>
+                            <td><%# Eval("NombrePropietario") %></td>
+                            <td><%# Eval("PrecioHora") %></td>
+                            <td><button type="button" name="btnImagen" class="btn btn-info btnImagen" data-toggle="modal" data-target="#myModal" data-img="<%# Eval("Imagen") %>">Ver foto</button></td>
+                            <td><button type="button" class="btn btn-warning mapita" data-toggle="modal" data-target="#myModal1" data-lat="<%# Eval("Latitud") %>" data-lon="<%# Eval("Longitud") %>">Ver Mapa</button></td>
+                            <td> <%# Eval("Puntuacion") %> </td>
                             <td><a href="<%# String.Format("/clientes/confirmar-reserva.aspx?id={0}", Eval("idCochera")) %>">Reservar</a></td>
                         </tr>
                     </ItemTemplate>
@@ -124,7 +124,7 @@
                     <h4 class="modal-title">Imagen de la cochera</h4>
                 </div>
                 <div class="modal-body">
-                    <img id="imagenModal" src="" class="foto img-responsive img-rounded" alt="Cochera1" width="304" height="236"/>
+                    <img id="imagenModal" src="#" class="foto img-responsive img-rounded imagenModal" alt="Cochera" width="304" height="236"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

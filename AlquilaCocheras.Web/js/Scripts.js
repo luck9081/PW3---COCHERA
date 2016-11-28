@@ -57,8 +57,12 @@
 
     $(document).ready(function () {
 
-        // CALCULADORA DE "confirmar-reserva.aspx"
+        // ASIGNAR SRC A LA IMAGEN DEL MODAL
+        $('.btnImagen').click(function () {
 
+            $('#imagenModal').attr('src',$(this).data('img'));
+
+        });
         
 
         // Activate Carousel
