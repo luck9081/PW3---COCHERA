@@ -26,16 +26,91 @@ namespace Clase_Usuario
         {
             ctx = context;
         }
-        public void agregarReservas(Reservas reserva)
+        public bool agregarReservas(Reservas reserva)
         {
-            ctx.Reservas.Add(reserva);
-            ctx.SaveChanges();
+            if (!solapamientoReserva(reserva))  // Si no está solapada, entonces se puede guardar
+            {
+                ctx.Reservas.Add(reserva);
+                ctx.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool solapamientoReserva(Reservas reserva)
+        {
+            bool resultado = false;
+
+            List<Reservas> reservasSolapadas = (
+
+                from r in ctx.Reservas
+                where r.Cocheras.IdCochera == reserva.Cocheras.IdCochera
+                select r
+
+            ).ToList();
+
+            foreach(Reservas item in reservasSolapadas)
+            {
+                if (
+                    reserva.FechaInicio >= item.FechaInicio
+                    && reserva.FechaFin <= item.FechaFin
+                    && (
+                        (
+                            TimeSpan.Parse(reserva.HoraInicio) >= TimeSpan.Parse(item.HoraInicio)
+                            && TimeSpan.Parse(reserva.HoraInicio) <= TimeSpan.Parse(item.HoraFin)
+                        )
+                        ||
+                        (
+                            TimeSpan.Parse(reserva.HoraInicio) <= TimeSpan.Parse(item.HoraInicio)
+                            && TimeSpan.Parse(reserva.HoraInicio) >= TimeSpan.Parse(item.HoraFin)
+                        )
+                        ||
+                        (
+                            TimeSpan.Parse(reserva.HoraInicio) >= TimeSpan.Parse(item.HoraInicio)
+                            && TimeSpan.Parse(reserva.HoraInicio) >= TimeSpan.Parse(item.HoraFin)
+                        )
+                        ||
+                        (
+                            TimeSpan.Parse(reserva.HoraInicio) <= TimeSpan.Parse(item.HoraInicio)
+                            && TimeSpan.Parse(reserva.HoraInicio) <= TimeSpan.Parse(item.HoraFin)
+                        )
+                       )
+                   )
+                {
+                    resultado = true;
+                    break;
+                }
+            }
+
+            return resultado;
+
+        }
+
+        public bool usuarioHabilitadoParaReservar(Usuarios usuario)
+        {
+            int cuantasNoPuntuo = (
+                from r in ctx.Reservas
+                where r.Usuarios.IdUsuario == usuario.IdUsuario
+                    && r.Puntuacion == 0
+                select r
+            ).Count();
+
+            if(cuantasNoPuntuo >= 2)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+                        
         }
 
         public dynamic listaReservas()
         {
-           
-
             var lista = (
                     from r in ctx.Reservas
                     join c in ctx.Cocheras on r.IdCochera equals c.IdCochera

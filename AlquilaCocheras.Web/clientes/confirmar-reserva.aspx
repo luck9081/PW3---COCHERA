@@ -55,8 +55,15 @@
             <tr>
                 <th scope="row">1</th>
                 <td><asp:Label ID="lblUbicacion" ClientIDMode="Static" runat="server"></asp:Label></td>
-                <td><asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label><input id="precioHora" name="price" disabled="disabled" runat="server" ClientIDMode="Static"/></td>
-                <td><asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label></td>
+                <td>
+                    <asp:Label ID="lblPrecioHora" ClientIDMode="Static" runat="server"></asp:Label>
+                    <input id="precioHora" name="price" disabled="disabled" runat="server" ClientIDMode="Static"/>
+                </td>
+                <td>
+                    $ <asp:Label ID="lblPrecioTotal" ClientIDMode="Static" runat="server"></asp:Label>
+                    <input type="hidden" id="totalHoras" runat="server" ClientIDMode="Static"/>
+                    <input type="hidden" id="precioTotal" runat="server" ClientIDMode="Static"/>
+                </td>
             </tr>
         </tbody>
     </table> 
@@ -85,7 +92,7 @@
 
                 var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 
-                var diffDays = Math.ceil(timeDiff / (1000 * 3600));
+                var diffDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
             
 
                 var horaInicio = document.getElementById("txtHorarioInicio").value;
@@ -96,7 +103,10 @@
 
                 var diffHoras = horaFin - horaInicio;
 
-                document.getElementById("lblPrecioTotal").innerHTML = (diffHoras + diffDays) * (parseFloat(document.getElementById("<%= precioHora.ClientID %>").value));
+                document.getElementById("<%= totalHoras.ClientID %>").value = (diffHoras * diffDays);
+
+                document.getElementById("lblPrecioTotal").innerHTML = (diffHoras * diffDays) * (parseFloat(document.getElementById("<%= precioHora.ClientID %>").value));
+                document.getElementById("precioTotal").value = (diffHoras * diffDays) * (parseFloat(document.getElementById("<%= precioHora.ClientID %>").value));
             
             });
         });

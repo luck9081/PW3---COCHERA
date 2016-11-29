@@ -193,6 +193,24 @@ namespace AlquilaCocheras.Web.clientes {
         protected global::System.Web.UI.WebControls.Label lblPrecioTotal;
         
         /// <summary>
+        /// Control totalHoras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden totalHoras;
+        
+        /// <summary>
+        /// Control precioTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden precioTotal;
+        
+        /// <summary>
         /// Control btnConfirmar.
         /// </summary>
         /// <remarks>

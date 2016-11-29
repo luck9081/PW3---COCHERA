@@ -33,24 +33,45 @@ namespace AlquilaCocheras.Web.clientes
             if (Page.IsValid)
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
+
                 TP_20162CEntities ctx = new TP_20162CEntities();
+
                 Cocheras coche = ctx.Cocheras.Where(i => i.IdCochera == id).FirstOrDefault();
+
                 Usuario usuario = new Usuario(ctx);
                 Usuarios usu = usuario.obtenerUsuario((string)Session["Usuario"]);
-                Reserva res = new Reserva(ctx);
+
                 Reservas reserva = new Reservas();
-                reserva.IdCochera = coche.IdCochera;
-                reserva.IdCliente = usu.IdUsuario;
-                reserva.CantidadHoras = coche.Precio;
+
+                reserva.Cocheras = coche;
+                reserva.Usuarios = usu;
+                reserva.CantidadHoras = decimal.Parse(totalHoras.Value);
                 reserva.FechaInicio = DateTime.Parse(txtFechaInicio.Text);
                 reserva.FechaFin = DateTime.Parse(txtFechaFin.Text);
                 reserva.FechaCarga = DateTime.Now;
                 reserva.HoraFin = txtHorarioFin.Text;
                 reserva.HoraInicio = txtHorarioInicio.Text;
-                reserva.Precio = Int32.Parse(lblPrecioTotal.Text);
-                res.agregarReservas(reserva);
-               
-                Response.Redirect("reservar.aspx");
+                reserva.Precio = decimal.Parse(precioTotal.Value);
+
+                Reserva res = new Reserva(ctx);
+
+                if (res.usuarioHabilitadoParaReservar(usu))
+                {
+                    if (res.agregarReservas(reserva))
+                    {
+                        Response.Redirect("reservar.aspx");
+                    }
+                    else
+                    {
+                        // MOSTRAR LABEL CON ERROR: RESERVA SOLAPADA
+                        lblResultado.Text = "Existen reservas que ocupan parcial o totalmente el rango horario elegido.";
+                    }
+                }
+                else
+                {
+                    // MOSTRAR LABEL CON ERROR: USUARIO TIENE DOS O MAS RESERVAS SIN PUNTUAR
+                    lblResultado.Text = "Tienes dos o más reservas sin puntuar. ¡Calificalas antes de continuar!";
+                }
 
             }
         }
